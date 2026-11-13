@@ -47,7 +47,7 @@ Dự án xây dựng hệ thống quản lý cửa hàng bách hóa gồm 3 thà
 ## 👥 Phân công thành viên
 
 | Thành viên| Nhiệm vụ |
-|---|---|---|
+|---|---|
 | Phước Điều| Backend lõi, FEFO, hạ tầng và GitHub
 | Thành Ân  | Database, Backend phụ trợ, kiểm thử và báo cáo 
 | Thúy Vy   | Phát triển Flutter Client
