@@ -31,6 +31,12 @@ Dự án xây dựng hệ thống quản lý cửa hàng bách hóa gồm 3 thà
 └── README.md
 ```
 
+## PHÂN TÍCH VÀ THIẾT KẾ HỆ THỐNG
+
+### 1. Sơ đồ Use Case tổng quát
+
+![Sơ đồ Use Case tổng quát](docs/diagrams/use_case_.svg)
+
 ## 🛠️ Công nghệ sử dụng
 
 | Thành phần | Công nghệ |
