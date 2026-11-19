@@ -8,7 +8,7 @@
     android:gravity="center_vertical"
     android:background="@android:color/white">
 
-    <!-- Thông tin sản phẩm -->
+    <!-- thông tin sản phẩm -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -34,7 +34,6 @@
             android:textSize="13sp" />
     </LinearLayout>
 
-    <!-- Cụm nút điều chỉnh số lượng tinh tế -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,7 +41,7 @@
         android:orientation="horizontal"
         android:layout_marginStart="8dp">
 
-        <!-- Nút Giảm (-) -->
+        <!-- nút giảm (-) -->
         <TextView
             android:id="@+id/btnMinus"
             android:layout_width="32dp"
@@ -56,7 +55,7 @@
             android:clickable="true"
             android:focusable="true"/>
 
-        <!-- Hiển thị số lượng -->
+        <!-- hiển thị SL -->
         <TextView
             android:id="@+id/tvQuantity"
             android:layout_width="36dp"
@@ -67,7 +66,7 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <!-- Nút Tăng (+) -->
+        <!-- nút tăng (+) -->
         <TextView
             android:id="@+id/btnPlus"
             android:layout_width="32dp"
@@ -81,7 +80,7 @@
             android:clickable="true"
             android:focusable="true"/>
 
-        <!-- Nút Xóa món -->
+        <!-- nút xóa món -->
         <ImageView
             android:id="@+id/btnDelete"
             android:layout_width="32dp"
@@ -89,6 +88,9 @@
             android:layout_marginStart="10dp"
             android:padding="6dp"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="Xóa sản phẩm"
+            android:focusable="true"
             android:src="@android:drawable/ic_menu_delete"
             app:tint="#EF4444" />
     </LinearLayout>
