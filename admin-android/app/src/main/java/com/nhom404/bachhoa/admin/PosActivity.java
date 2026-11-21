@@ -3,10 +3,12 @@ package com.nhom404.bachhoa.admin;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -15,6 +17,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.journeyapps.barcodescanner.ScanContract;
+import com.journeyapps.barcodescanner.ScanOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,9 +31,24 @@ public class PosActivity extends AppCompatActivity {
     private CartAdapter cartAdapter;
     private List<CartItem> cartList;
 
-    private Button btnCart, btnCheckout;
+    private Button btnCart, btnCheckout, btnScan;
+    private EditText edtSearch;
     private CardView cardSummary;
     private TextView tvTotalPrice;
+
+    private final ActivityResultLauncher<ScanOptions> barcodeLauncher =
+            registerForActivityResult(new ScanContract(), result -> {
+                if (result.getContents() != null) {
+                    String scannedCode = result.getContents().trim();
+                    if (edtSearch != null) {
+                        edtSearch.setText(scannedCode);
+                        edtSearch.setSelection(scannedCode.length());
+                    }
+                    handleScannedBarcode(scannedCode);
+                } else {
+                    Toast.makeText(this, "Đã hủy quét mã", Toast.LENGTH_SHORT).show();
+                }
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +61,19 @@ public class PosActivity extends AppCompatActivity {
         cardSummary = findViewById(R.id.cardSummary);
         tvTotalPrice = findViewById(R.id.tvTotalPrice);
         rvCartItems = findViewById(R.id.rvCartItems);
+
+        int scanId = getResources().getIdentifier("btnScan", "id", getPackageName());
+        if (scanId == 0) {
+            scanId = getResources().getIdentifier("btnScanBarcode", "id", getPackageName());
+        }
+        if (scanId != 0) {
+            btnScan = findViewById(scanId);
+        }
+
+        int searchId = getResources().getIdentifier("edtSearch", "id", getPackageName());
+        if (searchId != 0) {
+            edtSearch = findViewById(searchId);
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(cardSummary, (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -65,6 +98,12 @@ public class PosActivity extends AppCompatActivity {
         rvCartItems.setAdapter(cartAdapter);
 
         calculateTotalPrice();
+
+        if (btnScan != null) {
+            btnScan.setOnClickListener(v -> startBarcodeScan());
+        } else {
+            Toast.makeText(this, "Chưa tìm thấy nút btnScan trong activity_pos.xml", Toast.LENGTH_SHORT).show();
+        }
 
         btnCart.setOnClickListener(v -> {
             if (cardSummary.getVisibility() == View.GONE) {
@@ -99,6 +138,36 @@ public class PosActivity extends AppCompatActivity {
                     .setNegativeButton("Hủy", null)
                     .show();
         });
+    }
+
+    private void startBarcodeScan() {
+        ScanOptions options = new ScanOptions();
+        options.setPrompt("Đưa mã vạch sản phẩm vào khung hình");
+        options.setBeepEnabled(true);
+        options.setOrientationLocked(true);
+        options.setDesiredBarcodeFormats(ScanOptions.ALL_CODE_TYPES);
+        barcodeLauncher.launch(options);
+    }
+
+    private void handleScannedBarcode(String code) {
+        for (int i = 0; i < cartList.size(); i++) {
+            CartItem item = cartList.get(i);
+            if (code.equalsIgnoreCase(item.getId())) {
+                item.setQuantity(item.getQuantity() + 1);
+                cartAdapter.notifyItemChanged(i);
+                calculateTotalPrice();
+                cardSummary.setVisibility(View.VISIBLE);
+                Toast.makeText(this, "Đã tăng số lượng: " + item.getName(), Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+
+        // thêm tạm để test luồng
+        cartList.add(new CartItem(code, "SP mã " + code, 10000, 1));
+        cartAdapter.notifyItemInserted(cartList.size() - 1);
+        calculateTotalPrice();
+        cardSummary.setVisibility(View.VISIBLE);
+        Toast.makeText(this, "Đã quét mã: " + code, Toast.LENGTH_SHORT).show();
     }
 
     private void calculateTotalPrice() {
