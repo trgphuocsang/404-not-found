@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1720" width="2400" height="1720" font-family="Segoe UI, Roboto, Arial, sans-serif">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow-many" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 0 6 L 10 6 M 10 1 L 2 6 L 10 11" fill="none" stroke="#334155" stroke-width="1.6"/>
+    </marker>
+    <marker id="bar-one" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M 5 1 L 5 9" fill="none" stroke="#334155" stroke-width="1.8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="2400" height="1720" fill="#F1F5F9"/>
+
+  <!-- Header Banner -->
+  <rect x="40" y="16" width="2320" height="48" rx="8" fill="#1E293B"/>
+  <text x="1200" y="47" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="bold">
+    SƠ ĐỒ THỰC THỂ LIÊN KẾT (ERD) – HỆ THỐNG QUẢN LÝ CỬA HÀNG BÁCH HÓA KHU DÂN CƯ (13 BẢNG NGHIỆP VỤ &amp; FEFO)
+  </text>
+
+  <path d="M 540 170 L 565 170 L 565 512 L 540 512" fill="none" stroke="#1E40AF" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="548" y="353" width="127.6" height="16" rx="4" fill="#FFFFFF" stroke="#1E40AF" stroke-width="0.8" opacity="0.95"/>
+  <text x="554" y="365" fill="#1E40AF" font-size="11" font-weight="600">1 : N (phan_loai)</text>
+  <path d="M 540 440 L 585 440 L 585 218 L 660 218" fill="none" stroke="#15803D" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="584" y="223" width="114" height="16" rx="4" fill="#FFFFFF" stroke="#15803D" stroke-width="0.8" opacity="0.95"/>
+  <text x="590" y="235" fill="#15803D" font-size="11" font-weight="600">1 : N (nhap_lo)</text>
+  <path d="M 540 860 L 605 860 L 605 242 L 660 242" fill="none" stroke="#15803D" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="586" y="508" width="120.8" height="16" rx="4" fill="#FFFFFF" stroke="#15803D" stroke-width="0.8" opacity="0.95"/>
+  <text x="592" y="520" fill="#15803D" font-size="11" font-weight="600">1 : N (cung_ung)</text>
+  <path d="M 60 440 L 32 440 L 32 1233 L 60 1233" fill="none" stroke="#0F766E" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="32" y="773" width="154.79999999999998" height="16" rx="4" fill="#FFFFFF" stroke="#0F766E" stroke-width="0.8" opacity="0.95"/>
+  <text x="38" y="785" fill="#0F766E" font-size="11" font-weight="600">1 : N (san_pham_quen)</text>
+  <path d="M 540 584 L 625 584 L 625 1424 L 660 1424" fill="none" stroke="#7E22CE" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="561" y="1368" width="141.2" height="16" rx="4" fill="#FFFFFF" stroke="#7E22CE" stroke-width="0.8" opacity="0.95"/>
+  <text x="567" y="1380" fill="#7E22CE" font-size="11" font-weight="600">1 : N (km_san_pham)</text>
+  <path d="M 660 170 L 640 170 L 640 638 L 660 638" fill="none" stroke="#15803D" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="561" y="583" width="134.39999999999998" height="16" rx="4" fill="#FFFFFF" stroke="#15803D" stroke-width="0.8" opacity="0.95"/>
+  <text x="567" y="595" fill="#15803D" font-size="11" font-weight="600">1 : N (kiem_ke_lo)</text>
+  <path d="M 660 410 L 632 410 L 632 983 L 660 983" fill="none" stroke="#B91C1C" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="548" y="923" width="161.6" height="16" rx="4" fill="#FFFFFF" stroke="#B91C1C" stroke-width="0.8" opacity="0.95"/>
+  <text x="554" y="935" fill="#B91C1C" font-size="11" font-weight="600">1 : N (huy_lo_het_han)</text>
+  <path d="M 660 434 L 615 434 L 615 1448 L 660 1448" fill="none" stroke="#7E22CE" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="548" y="1423" width="154.79999999999998" height="16" rx="4" fill="#FFFFFF" stroke="#7E22CE" stroke-width="0.8" opacity="0.95"/>
+  <text x="554" y="1435" fill="#7E22CE" font-size="11" font-weight="600">1 : N (km_lo_can_han)</text>
+  <path d="M 1260 170 L 1175 170 L 1175 266 L 1140 266" fill="none" stroke="#0369A1" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1148" y="203" width="120.8" height="16" rx="4" fill="#FFFFFF" stroke="#0369A1" stroke-width="0.8" opacity="0.95"/>
+  <text x="1154" y="215" fill="#0369A1" font-size="11" font-weight="600">1 : N (nhap_kho)</text>
+  <path d="M 1260 218 L 1190 218 L 1190 662 L 1140 662" fill="none" stroke="#0369A1" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1146" y="623" width="148" height="16" rx="4" fill="#FFFFFF" stroke="#0369A1" stroke-width="0.8" opacity="0.95"/>
+  <text x="1152" y="635" fill="#0369A1" font-size="11" font-weight="600">1 : N (thuc_hien_kk)</text>
+  <path d="M 1260 266 L 1205 266 L 1205 1007 L 1140 1007" fill="none" stroke="#B91C1C" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1144" y="968" width="154.79999999999998" height="16" rx="4" fill="#FFFFFF" stroke="#B91C1C" stroke-width="0.8" opacity="0.95"/>
+  <text x="1150" y="980" fill="#B91C1C" font-size="11" font-weight="600">1 : N (lap_phieu_huy)</text>
+  <path d="M 1260 314 L 1230 314 L 1230 623 L 1260 623" fill="none" stroke="#B45309" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1142" y="573" width="175.2" height="16" rx="4" fill="#FFFFFF" stroke="#B45309" stroke-width="0.8" opacity="0.95"/>
+  <text x="1148" y="585" fill="#B45309" font-size="11" font-weight="600">1 : N (mua / ban / giao)</text>
+  <path d="M 1140 1280 L 1220 1280 L 1220 695 L 1260 695" fill="none" stroke="#7E22CE" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1144" y="1243" width="141.2" height="16" rx="4" fill="#FFFFFF" stroke="#7E22CE" stroke-width="0.8" opacity="0.95"/>
+  <text x="1150" y="1255" fill="#7E22CE" font-size="11" font-weight="600">1 : N (ap_dung_don)</text>
+  <path d="M 1740 575 L 1785 575 L 1785 194 L 1860 194" fill="none" stroke="#B45309" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1744" y="308" width="148" height="16" rx="4" fill="#FFFFFF" stroke="#B45309" stroke-width="0.8" opacity="0.95"/>
+  <text x="1750" y="320" fill="#B45309" font-size="11" font-weight="600">1 : N (gom_cac_dong)</text>
+  <path d="M 1860 170 L 1825 170 L 1825 499 L 1860 499" fill="none" stroke="#15803D" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1744" y="433" width="148" height="16" rx="4" fill="#FFFFFF" stroke="#15803D" stroke-width="0.8" opacity="0.95"/>
+  <text x="1750" y="445" fill="#15803D" font-size="11" font-weight="600">1 : N (tach_lo_FEFO)</text>
+  <path d="M 1140 170 L 1160 170 L 1160 95 L 1805 95 L 1805 523 L 1860 523" fill="none" stroke="#15803D" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1446" y="76" width="168.4" height="16" rx="4" fill="#FFFFFF" stroke="#15803D" stroke-width="0.8" opacity="0.95"/>
+  <text x="1452" y="88" fill="#15803D" font-size="11" font-weight="600">1 : N (xuat_tu_lo_FEFO)</text>
+  <path d="M 540 464 L 575 464 L 575 78 L 1840 78 L 1840 218 L 1860 218" fill="none" stroke="#1E40AF" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1116" y="59" width="175.2" height="16" rx="4" fill="#FFFFFF" stroke="#1E40AF" stroke-width="0.8" opacity="0.95"/>
+  <text x="1122" y="71" fill="#1E40AF" font-size="11" font-weight="600">1 : N (dat_mua_san_pham)</text>
+  <path d="M 1740 170 L 1765 170 L 1765 784 L 1860 784" fill="none" stroke="#0F766E" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1744" y="733" width="161.6" height="16" rx="4" fill="#FFFFFF" stroke="#0F766E" stroke-width="0.8" opacity="0.95"/>
+  <text x="1750" y="745" fill="#0F766E" font-size="11" font-weight="600">1 : N (nhan_thong_bao)</text>
+  <path d="M 1740 743 L 1815 743 L 1815 880 L 1860 880" fill="none" stroke="#0F766E" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1748" y="848" width="141.2" height="16" rx="4" fill="#FFFFFF" stroke="#0F766E" stroke-width="0.8" opacity="0.95"/>
+  <text x="1754" y="860" fill="#0F766E" font-size="11" font-weight="600">1 : N (tb_don_hang)</text>
+  <path d="M 1260 386 L 1242 386 L 1242 505 L 555 505 L 555 1209 L 540 1209" fill="none" stroke="#0F766E" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="886" y="486" width="161.6" height="16" rx="4" fill="#FFFFFF" stroke="#0F766E" stroke-width="0.8" opacity="0.95"/>
+  <text x="892" y="498" fill="#0F766E" font-size="11" font-weight="600">1 : N (khach_mua_quen)</text>
+  <path d="M 1260 410 L 1212 410 L 1212 1664 L 1140 1664" fill="none" stroke="#7E22CE" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1148" y="1638" width="107.2" height="16" rx="4" fill="#FFFFFF" stroke="#7E22CE" stroke-width="0.8" opacity="0.95"/>
+  <text x="1154" y="1650" fill="#7E22CE" font-size="11" font-weight="600">1 : N (tao_km)</text>
+  <path d="M 1140 1304 L 1152 1304 L 1152 60 L 1850 60 L 1850 242 L 1860 242" fill="none" stroke="#7E22CE" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1446" y="41" width="175.2" height="16" rx="4" fill="#FFFFFF" stroke="#7E22CE" stroke-width="0.8" opacity="0.95"/>
+  <text x="1452" y="53" fill="#7E22CE" font-size="11" font-weight="600">1 : N (ap_dung_dong_don)</text>
+  <path d="M 1140 1376 L 1236 1376 L 1236 1120 L 1795 1120 L 1795 904 L 1860 904" fill="none" stroke="#0F766E" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1456" y="1101" width="154.79999999999998" height="16" rx="4" fill="#FFFFFF" stroke="#0F766E" stroke-width="0.8" opacity="0.95"/>
+  <text x="1462" y="1113" fill="#0F766E" font-size="11" font-weight="600">1 : N (tb_khuyen_mai)</text>
+  <path d="M 1140 386 L 1168 386 L 1168 490 L 1775 490 L 1775 928 L 1860 928" fill="none" stroke="#0F766E" stroke-width="1.8" marker-start="url(#bar-one)" marker-end="url(#arrow-many)" opacity="0.9"/>
+  <rect x="1456" y="471" width="161.6" height="16" rx="4" fill="#FFFFFF" stroke="#0F766E" stroke-width="0.8" opacity="0.95"/>
+  <text x="1462" y="483" fill="#0F766E" font-size="11" font-weight="600">1 : N (tb_canh_bao_lo)</text>
+
+  <!-- Table: danh_muc -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="120" width="480" height="214" rx="8" fill="#F8FAFC" stroke="#1E3A8A" stroke-width="1.6"/>
+    <path d="M 60 128 Q 60 120 68 120 L 532 120 Q 540 120 540 128 L 540 158 L 60 158 Z" fill="#1E40AF"/>
+    <text x="74" y="145" fill="#FFFFFF" font-size="15" font-weight="bold">2. danh_muc (Danh mục hàng hóa)</text>
+    <rect x="70" y="162" width="46" height="16" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.7"/>
+    <text x="93" y="174" text-anchor="middle" fill="#B45309" font-size="10" font-weight="bold">PK</text>
+    <text x="126" y="174" fill="#0F172A" font-size="12.5" font-weight="700">id</text>
+    <text x="295" y="174" fill="#475569" font-size="11.5">SERIAL</text>
+    <rect x="62" y="182" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="70" y="186" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="93" y="198" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="126" y="198" fill="#0F172A" font-size="12.5" font-weight="500">ma_danh_muc</text>
+    <text x="295" y="198" fill="#475569" font-size="11.5">VARCHAR(30) NOT NULL</text>
+    <rect x="70" y="210" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="93" y="222" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="126" y="222" fill="#0F172A" font-size="12.5" font-weight="500">ten_danh_muc</text>
+    <text x="295" y="222" fill="#475569" font-size="11.5">VARCHAR(100) NOT NULL</text>
+    <rect x="62" y="230" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="126" y="246" fill="#0F172A" font-size="12.5" font-weight="500">mo_ta</text>
+    <text x="295" y="246" fill="#475569" font-size="11.5">TEXT</text>
+    <text x="126" y="270" fill="#0F172A" font-size="12.5" font-weight="500">hinh_anh</text>
+    <text x="295" y="270" fill="#475569" font-size="11.5">TEXT</text>
+    <rect x="62" y="278" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="126" y="294" fill="#0F172A" font-size="12.5" font-weight="500">trang_thai</text>
+    <text x="295" y="294" fill="#475569" font-size="11.5">VARCHAR(20) NOT NULL</text>
+    <text x="126" y="318" fill="#0F172A" font-size="12.5" font-weight="500">ngay_tao</text>
+    <text x="295" y="318" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+  </g>
+
+  <!-- Table: san_pham -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="390" width="480" height="358" rx="8" fill="#F8FAFC" stroke="#1E3A8A" stroke-width="1.6"/>
+    <path d="M 60 398 Q 60 390 68 390 L 532 390 Q 540 390 540 398 L 540 428 L 60 428 Z" fill="#1E40AF"/>
+    <text x="74" y="415" fill="#FFFFFF" font-size="15" font-weight="bold">4. san_pham (Sản phẩm bách hóa)</text>
+    <rect x="70" y="432" width="46" height="16" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.7"/>
+    <text x="93" y="444" text-anchor="middle" fill="#B45309" font-size="10" font-weight="bold">PK</text>
+    <text x="126" y="444" fill="#0F172A" font-size="12.5" font-weight="700">id</text>
+    <text x="295" y="444" fill="#475569" font-size="11.5">SERIAL</text>
+    <rect x="62" y="452" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="70" y="456" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="93" y="468" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="126" y="468" fill="#0F172A" font-size="12.5" font-weight="500">ma_san_pham</text>
+    <text x="295" y="468" fill="#475569" font-size="11.5">VARCHAR(30) NOT NULL</text>
+    <rect x="70" y="480" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="93" y="492" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="126" y="492" fill="#0F172A" font-size="12.5" font-weight="500">ma_vach</text>
+    <text x="295" y="492" fill="#475569" font-size="11.5">VARCHAR(50) NOT NULL</text>
+    <rect x="62" y="500" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="70" y="504" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="93" y="516" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="126" y="516" fill="#0F172A" font-size="12.5" font-weight="700">danh_muc_id</text>
+    <text x="295" y="516" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; danh_muc.id</text>
+    <text x="126" y="540" fill="#0F172A" font-size="12.5" font-weight="500">ten_san_pham</text>
+    <text x="295" y="540" fill="#475569" font-size="11.5">VARCHAR(180) NOT NULL</text>
+    <rect x="62" y="548" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="126" y="564" fill="#0F172A" font-size="12.5" font-weight="500">don_vi_tinh</text>
+    <text x="295" y="564" fill="#475569" font-size="11.5">VARCHAR(30) NOT NULL</text>
+    <text x="126" y="588" fill="#0F172A" font-size="12.5" font-weight="500">gia_ban</text>
+    <text x="295" y="588" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+    <rect x="62" y="596" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="126" y="612" fill="#0F172A" font-size="12.5" font-weight="500">ton_toi_thieu</text>
+    <text x="295" y="612" fill="#475569" font-size="11.5">INTEGER NOT NULL DEFAULT 10</text>
+    <text x="126" y="636" fill="#0F172A" font-size="12.5" font-weight="500">hinh_anh</text>
+    <text x="295" y="636" fill="#475569" font-size="11.5">TEXT</text>
+    <rect x="62" y="644" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="126" y="660" fill="#0F172A" font-size="12.5" font-weight="500">mo_ta</text>
+    <text x="295" y="660" fill="#475569" font-size="11.5">TEXT</text>
+    <text x="126" y="684" fill="#0F172A" font-size="12.5" font-weight="500">trang_thai</text>
+    <text x="295" y="684" fill="#475569" font-size="11.5">VARCHAR(20) NOT NULL</text>
+    <rect x="62" y="692" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="126" y="708" fill="#0F172A" font-size="12.5" font-weight="500">ngay_tao</text>
+    <text x="295" y="708" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+    <text x="126" y="732" fill="#0F172A" font-size="12.5" font-weight="500">ngay_cap_nhat</text>
+    <text x="295" y="732" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+  </g>
+
+  <!-- Table: nha_cung_cap -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="810" width="480" height="262" rx="8" fill="#F8FAFC" stroke="#1E3A8A" stroke-width="1.6"/>
+    <path d="M 60 818 Q 60 810 68 810 L 532 810 Q 540 810 540 818 L 540 848 L 60 848 Z" fill="#1E40AF"/>
+    <text x="74" y="835" fill="#FFFFFF" font-size="15" font-weight="bold">3. nha_cung_cap (Nhà cung cấp)</text>
+    <rect x="70" y="852" width="46" height="16" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.7"/>
+    <text x="93" y="864" text-anchor="middle" fill="#B45309" font-size="10" font-weight="bold">PK</text>
+    <text x="126" y="864" fill="#0F172A" font-size="12.5" font-weight="700">id</text>
+    <text x="295" y="864" fill="#475569" font-size="11.5">SERIAL</text>
+    <rect x="62" y="872" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="70" y="876" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="93" y="888" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="126" y="888" fill="#0F172A" font-size="12.5" font-weight="500">ma_ncc</text>
+    <text x="295" y="888" fill="#475569" font-size="11.5">VARCHAR(30) NOT NULL</text>
+    <text x="126" y="912" fill="#0F172A" font-size="12.5" font-weight="500">ten_ncc</text>
+    <text x="295" y="912" fill="#475569" font-size="11.5">VARCHAR(150) NOT NULL</text>
+    <rect x="62" y="920" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="126" y="936" fill="#0F172A" font-size="12.5" font-weight="500">nguoi_lien_he</text>
+    <text x="295" y="936" fill="#475569" font-size="11.5">VARCHAR(100)</text>
+    <rect x="70" y="948" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="93" y="960" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="126" y="960" fill="#0F172A" font-size="12.5" font-weight="500">so_dien_thoai</text>
+    <text x="295" y="960" fill="#475569" font-size="11.5">VARCHAR(15) NOT NULL</text>
+    <rect x="62" y="968" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="126" y="984" fill="#0F172A" font-size="12.5" font-weight="500">email</text>
+    <text x="295" y="984" fill="#475569" font-size="11.5">VARCHAR(120)</text>
+    <text x="126" y="1008" fill="#0F172A" font-size="12.5" font-weight="500">dia_chi</text>
+    <text x="295" y="1008" fill="#475569" font-size="11.5">TEXT NOT NULL</text>
+    <rect x="62" y="1016" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="126" y="1032" fill="#0F172A" font-size="12.5" font-weight="500">trang_thai</text>
+    <text x="295" y="1032" fill="#475569" font-size="11.5">VARCHAR(20) NOT NULL</text>
+    <text x="126" y="1056" fill="#0F172A" font-size="12.5" font-weight="500">ngay_tao</text>
+    <text x="295" y="1056" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+  </g>
+
+  <!-- Table: mua_thuong_xuyen -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="1135" width="480" height="238" rx="8" fill="#F0FDFA" stroke="#115E59" stroke-width="1.6"/>
+    <path d="M 60 1143 Q 60 1135 68 1135 L 532 1135 Q 540 1135 540 1143 L 540 1173 L 60 1173 Z" fill="#0F766E"/>
+    <text x="74" y="1160" fill="#FFFFFF" font-size="15" font-weight="bold">12. mua_thuong_xuyen (Mua thường xuyên)</text>
+    <rect x="70" y="1177" width="46" height="16" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.7"/>
+    <text x="93" y="1189" text-anchor="middle" fill="#B45309" font-size="10" font-weight="bold">PK</text>
+    <text x="126" y="1189" fill="#0F172A" font-size="12.5" font-weight="700">id</text>
+    <text x="295" y="1189" fill="#475569" font-size="11.5">SERIAL</text>
+    <rect x="62" y="1197" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="70" y="1201" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="93" y="1213" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK,UK</text>
+    <text x="126" y="1213" fill="#0F172A" font-size="12.5" font-weight="700">khach_hang_id</text>
+    <text x="295" y="1213" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; nguoi_dung.id</text>
+    <rect x="70" y="1225" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="93" y="1237" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK,UK</text>
+    <text x="126" y="1237" fill="#0F172A" font-size="12.5" font-weight="700">san_pham_id</text>
+    <text x="295" y="1237" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; san_pham.id</text>
+    <rect x="62" y="1245" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="126" y="1261" fill="#0F172A" font-size="12.5" font-weight="500">so_luong_mac_dinh</text>
+    <text x="295" y="1261" fill="#475569" font-size="11.5">INTEGER NOT NULL DEFAULT 1</text>
+    <text x="126" y="1285" fill="#0F172A" font-size="12.5" font-weight="500">so_lan_mua</text>
+    <text x="295" y="1285" fill="#475569" font-size="11.5">INTEGER NOT NULL DEFAULT 1</text>
+    <rect x="62" y="1293" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="126" y="1309" fill="#0F172A" font-size="12.5" font-weight="500">lan_mua_cuoi</text>
+    <text x="295" y="1309" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+    <text x="126" y="1333" fill="#0F172A" font-size="12.5" font-weight="500">nhan_thong_bao_km</text>
+    <text x="295" y="1333" fill="#475569" font-size="11.5">BOOLEAN NOT NULL DEFAULT TRUE</text>
+    <rect x="62" y="1341" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="126" y="1357" fill="#0F172A" font-size="12.5" font-weight="500">ngay_tao</text>
+    <text x="295" y="1357" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+  </g>
+
+  <!-- Table: lo_hang -->
+  <g filter="url(#shadow)">
+    <rect x="660" y="120" width="480" height="358" rx="8" fill="#F0FDF4" stroke="#166534" stroke-width="1.6"/>
+    <path d="M 660 128 Q 660 120 668 120 L 1132 120 Q 1140 120 1140 128 L 1140 158 L 660 158 Z" fill="#15803D"/>
+    <text x="674" y="145" fill="#FFFFFF" font-size="15" font-weight="bold">5. lo_hang (Quản lý tồn kho theo Lô - FEFO)</text>
+    <rect x="670" y="162" width="46" height="16" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.7"/>
+    <text x="693" y="174" text-anchor="middle" fill="#B45309" font-size="10" font-weight="bold">PK,UK</text>
+    <text x="726" y="174" fill="#0F172A" font-size="12.5" font-weight="700">id</text>
+    <text x="895" y="174" fill="#475569" font-size="11.5">SERIAL</text>
+    <rect x="662" y="182" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="670" y="186" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="693" y="198" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="726" y="198" fill="#0F172A" font-size="12.5" font-weight="500">ma_lo</text>
+    <text x="895" y="198" fill="#475569" font-size="11.5">VARCHAR(40) NOT NULL</text>
+    <rect x="670" y="210" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="693" y="222" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK,UK</text>
+    <text x="726" y="222" fill="#0F172A" font-size="12.5" font-weight="700">san_pham_id</text>
+    <text x="895" y="222" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; san_pham.id</text>
+    <rect x="662" y="230" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="670" y="234" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="693" y="246" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="726" y="246" fill="#0F172A" font-size="12.5" font-weight="700">nha_cung_cap_id</text>
+    <text x="895" y="246" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; nha_cung_cap.id</text>
+    <rect x="670" y="258" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="693" y="270" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="726" y="270" fill="#0F172A" font-size="12.5" font-weight="700">nguoi_nhap_id</text>
+    <text x="895" y="270" fill="#475569" font-size="11.5">INTEGER -&gt; nguoi_dung.id</text>
+    <rect x="662" y="278" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="294" fill="#0F172A" font-size="12.5" font-weight="500">so_luong_nhap</text>
+    <text x="895" y="294" fill="#475569" font-size="11.5">INTEGER NOT NULL (&gt; 0)</text>
+    <text x="726" y="318" fill="#0F172A" font-size="12.5" font-weight="500">so_luong_con</text>
+    <text x="895" y="318" fill="#475569" font-size="11.5">INTEGER NOT NULL (0..so_luong_nhap)</text>
+    <rect x="662" y="326" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="342" fill="#0F172A" font-size="12.5" font-weight="500">gia_nhap</text>
+    <text x="895" y="342" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL (&gt;= 0)</text>
+    <text x="726" y="366" fill="#0F172A" font-size="12.5" font-weight="500">ngay_san_xuat</text>
+    <text x="895" y="366" fill="#475569" font-size="11.5">DATE</text>
+    <rect x="662" y="374" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="390" fill="#0F172A" font-size="12.5" font-weight="500">ngay_nhap</text>
+    <text x="895" y="390" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+    <text x="726" y="414" fill="#0F172A" font-size="12.5" font-weight="500">han_su_dung</text>
+    <text x="895" y="414" fill="#475569" font-size="11.5">DATE NOT NULL (FEFO Key)</text>
+    <rect x="662" y="422" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="438" fill="#0F172A" font-size="12.5" font-weight="500">trang_thai</text>
+    <text x="895" y="438" fill="#475569" font-size="11.5">VARCHAR(20) NOT NULL</text>
+    <text x="726" y="462" fill="#0F172A" font-size="12.5" font-weight="500">ghi_chu</text>
+    <text x="895" y="462" fill="#475569" font-size="11.5">TEXT</text>
+  </g>
+
+  <!-- Table: kiem_ke -->
+  <g filter="url(#shadow)">
+    <rect x="660" y="540" width="480" height="286" rx="8" fill="#F8FAFC" stroke="#166534" stroke-width="1.6"/>
+    <path d="M 660 548 Q 660 540 668 540 L 1132 540 Q 1140 540 1140 548 L 1140 578 L 660 578 Z" fill="#15803D"/>
+    <text x="674" y="565" fill="#FFFFFF" font-size="15" font-weight="bold">10. kiem_ke (Kiểm kê kho theo lô)</text>
+    <rect x="670" y="582" width="46" height="16" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.7"/>
+    <text x="693" y="594" text-anchor="middle" fill="#B45309" font-size="10" font-weight="bold">PK</text>
+    <text x="726" y="594" fill="#0F172A" font-size="12.5" font-weight="700">id</text>
+    <text x="895" y="594" fill="#475569" font-size="11.5">SERIAL</text>
+    <rect x="662" y="602" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="670" y="606" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="693" y="618" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="726" y="618" fill="#0F172A" font-size="12.5" font-weight="500">ma_kiem_ke</text>
+    <text x="895" y="618" fill="#475569" font-size="11.5">VARCHAR(40) NOT NULL</text>
+    <rect x="670" y="630" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="693" y="642" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="726" y="642" fill="#0F172A" font-size="12.5" font-weight="700">lo_hang_id</text>
+    <text x="895" y="642" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; lo_hang.id</text>
+    <rect x="662" y="650" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="670" y="654" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="693" y="666" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="726" y="666" fill="#0F172A" font-size="12.5" font-weight="700">nguoi_kiem_ke_id</text>
+    <text x="895" y="666" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; nguoi_dung.id</text>
+    <text x="726" y="690" fill="#0F172A" font-size="12.5" font-weight="500">so_luong_he_thong</text>
+    <text x="895" y="690" fill="#475569" font-size="11.5">INTEGER NOT NULL (&gt;= 0)</text>
+    <rect x="662" y="698" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="714" fill="#0F172A" font-size="12.5" font-weight="500">so_luong_thuc_te</text>
+    <text x="895" y="714" fill="#475569" font-size="11.5">INTEGER NOT NULL (&gt;= 0)</text>
+    <text x="726" y="738" fill="#0F172A" font-size="12.5" font-weight="500">chenh_lech</text>
+    <text x="895" y="738" fill="#475569" font-size="11.5">INTEGER NOT NULL (thuc_te - he_thong)</text>
+    <rect x="662" y="746" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="762" fill="#0F172A" font-size="12.5" font-weight="500">ly_do</text>
+    <text x="895" y="762" fill="#475569" font-size="11.5">TEXT</text>
+    <text x="726" y="786" fill="#0F172A" font-size="12.5" font-weight="500">trang_thai</text>
+    <text x="895" y="786" fill="#475569" font-size="11.5">VARCHAR(20) NOT NULL</text>
+    <rect x="662" y="794" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="810" fill="#0F172A" font-size="12.5" font-weight="500">ngay_kiem_ke</text>
+    <text x="895" y="810" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+  </g>
+
+  <!-- Table: huy_hang -->
+  <g filter="url(#shadow)">
+    <rect x="660" y="885" width="480" height="286" rx="8" fill="#FEF2F2" stroke="#991B1B" stroke-width="1.6"/>
+    <path d="M 660 893 Q 660 885 668 885 L 1132 885 Q 1140 885 1140 893 L 1140 923 L 660 923 Z" fill="#B91C1C"/>
+    <text x="674" y="910" fill="#FFFFFF" font-size="15" font-weight="bold">11. huy_hang (Tiêu hủy lô hàng hết hạn/hỏng)</text>
+    <rect x="670" y="927" width="46" height="16" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.7"/>
+    <text x="693" y="939" text-anchor="middle" fill="#B45309" font-size="10" font-weight="bold">PK</text>
+    <text x="726" y="939" fill="#0F172A" font-size="12.5" font-weight="700">id</text>
+    <text x="895" y="939" fill="#475569" font-size="11.5">SERIAL</text>
+    <rect x="662" y="947" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="670" y="951" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="693" y="963" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="726" y="963" fill="#0F172A" font-size="12.5" font-weight="500">ma_phieu_huy</text>
+    <text x="895" y="963" fill="#475569" font-size="11.5">VARCHAR(40) NOT NULL</text>
+    <rect x="670" y="975" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="693" y="987" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="726" y="987" fill="#0F172A" font-size="12.5" font-weight="700">lo_hang_id</text>
+    <text x="895" y="987" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; lo_hang.id</text>
+    <rect x="662" y="995" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="670" y="999" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="693" y="1011" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="726" y="1011" fill="#0F172A" font-size="12.5" font-weight="700">nguoi_huy_id</text>
+    <text x="895" y="1011" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; nguoi_dung.id</text>
+    <text x="726" y="1035" fill="#0F172A" font-size="12.5" font-weight="500">so_luong_huy</text>
+    <text x="895" y="1035" fill="#475569" font-size="11.5">INTEGER NOT NULL (&gt; 0)</text>
+    <rect x="662" y="1043" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="1059" fill="#0F172A" font-size="12.5" font-weight="500">don_gia_von</text>
+    <text x="895" y="1059" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+    <text x="726" y="1083" fill="#0F172A" font-size="12.5" font-weight="500">tong_gia_tri_huy</text>
+    <text x="895" y="1083" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+    <rect x="662" y="1091" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="1107" fill="#0F172A" font-size="12.5" font-weight="500">nguyen_nhan</text>
+    <text x="895" y="1107" fill="#475569" font-size="11.5">VARCHAR(30) NOT NULL</text>
+    <text x="726" y="1131" fill="#0F172A" font-size="12.5" font-weight="500">ghi_chu</text>
+    <text x="895" y="1131" fill="#475569" font-size="11.5">TEXT</text>
+    <rect x="662" y="1139" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="1155" fill="#0F172A" font-size="12.5" font-weight="500">ngay_huy</text>
+    <text x="895" y="1155" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+  </g>
+
+  <!-- Table: khuyen_mai -->
+  <g filter="url(#shadow)">
+    <rect x="660" y="1230" width="480" height="454" rx="8" fill="#FAF5FF" stroke="#6B21A8" stroke-width="1.6"/>
+    <path d="M 660 1238 Q 660 1230 668 1230 L 1132 1230 Q 1140 1230 1140 1238 L 1140 1268 L 660 1268 Z" fill="#7E22CE"/>
+    <text x="674" y="1255" fill="#FFFFFF" font-size="15" font-weight="bold">6. khuyen_mai (Chương trình khuyến mãi)</text>
+    <rect x="670" y="1272" width="46" height="16" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.7"/>
+    <text x="693" y="1284" text-anchor="middle" fill="#B45309" font-size="10" font-weight="bold">PK</text>
+    <text x="726" y="1284" fill="#0F172A" font-size="12.5" font-weight="700">id</text>
+    <text x="895" y="1284" fill="#475569" font-size="11.5">SERIAL</text>
+    <rect x="662" y="1292" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="670" y="1296" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="693" y="1308" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="726" y="1308" fill="#0F172A" font-size="12.5" font-weight="500">ma_khuyen_mai</text>
+    <text x="895" y="1308" fill="#475569" font-size="11.5">VARCHAR(40) NOT NULL</text>
+    <text x="726" y="1332" fill="#0F172A" font-size="12.5" font-weight="500">ten_khuyen_mai</text>
+    <text x="895" y="1332" fill="#475569" font-size="11.5">VARCHAR(150) NOT NULL</text>
+    <rect x="662" y="1340" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="1356" fill="#0F172A" font-size="12.5" font-weight="500">mo_ta</text>
+    <text x="895" y="1356" fill="#475569" font-size="11.5">TEXT</text>
+    <text x="726" y="1380" fill="#0F172A" font-size="12.5" font-weight="500">loai_khuyen_mai</text>
+    <text x="895" y="1380" fill="#475569" font-size="11.5">VARCHAR(20) NOT NULL</text>
+    <rect x="662" y="1388" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="1404" fill="#0F172A" font-size="12.5" font-weight="500">pham_vi_ap_dung</text>
+    <text x="895" y="1404" fill="#475569" font-size="11.5">VARCHAR(20) NOT NULL</text>
+    <rect x="670" y="1416" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="693" y="1428" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="726" y="1428" fill="#0F172A" font-size="12.5" font-weight="700">san_pham_id</text>
+    <text x="895" y="1428" fill="#475569" font-size="11.5">INTEGER -&gt; san_pham.id</text>
+    <rect x="662" y="1436" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="670" y="1440" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="693" y="1452" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="726" y="1452" fill="#0F172A" font-size="12.5" font-weight="700">lo_hang_id</text>
+    <text x="895" y="1452" fill="#475569" font-size="11.5">INTEGER -&gt; lo_hang.id</text>
+    <text x="726" y="1476" fill="#0F172A" font-size="12.5" font-weight="500">gia_tri_giam</text>
+    <text x="895" y="1476" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+    <rect x="662" y="1484" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="1500" fill="#0F172A" font-size="12.5" font-weight="500">giam_toi_da</text>
+    <text x="895" y="1500" fill="#475569" font-size="11.5">NUMERIC(12,2)</text>
+    <text x="726" y="1524" fill="#0F172A" font-size="12.5" font-weight="500">don_hang_toi_thieu</text>
+    <text x="895" y="1524" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+    <rect x="662" y="1532" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="1548" fill="#0F172A" font-size="12.5" font-weight="500">ngay_bat_dau</text>
+    <text x="895" y="1548" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+    <text x="726" y="1572" fill="#0F172A" font-size="12.5" font-weight="500">ngay_ket_thuc</text>
+    <text x="895" y="1572" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+    <rect x="662" y="1580" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="1596" fill="#0F172A" font-size="12.5" font-weight="500">so_luong_gioi_han</text>
+    <text x="895" y="1596" fill="#475569" font-size="11.5">INTEGER</text>
+    <text x="726" y="1620" fill="#0F172A" font-size="12.5" font-weight="500">so_luong_da_dung</text>
+    <text x="895" y="1620" fill="#475569" font-size="11.5">INTEGER NOT NULL</text>
+    <rect x="662" y="1628" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="726" y="1644" fill="#0F172A" font-size="12.5" font-weight="500">trang_thai</text>
+    <text x="895" y="1644" fill="#475569" font-size="11.5">VARCHAR(20) NOT NULL</text>
+    <rect x="670" y="1656" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="693" y="1668" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="726" y="1668" fill="#0F172A" font-size="12.5" font-weight="700">nguoi_tao_id</text>
+    <text x="895" y="1668" fill="#475569" font-size="11.5">INTEGER -&gt; nguoi_dung.id</text>
+  </g>
+
+  <!-- Table: nguoi_dung -->
+  <g filter="url(#shadow)">
+    <rect x="1260" y="120" width="480" height="334" rx="8" fill="#F0F9FF" stroke="#075985" stroke-width="1.6"/>
+    <path d="M 1260 128 Q 1260 120 1268 120 L 1732 120 Q 1740 120 1740 128 L 1740 158 L 1260 158 Z" fill="#0369A1"/>
+    <text x="1274" y="145" fill="#FFFFFF" font-size="15" font-weight="bold">1. nguoi_dung (Tài khoản &amp; Phân quyền)</text>
+    <rect x="1270" y="162" width="46" height="16" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.7"/>
+    <text x="1293" y="174" text-anchor="middle" fill="#B45309" font-size="10" font-weight="bold">PK</text>
+    <text x="1326" y="174" fill="#0F172A" font-size="12.5" font-weight="700">id</text>
+    <text x="1495" y="174" fill="#475569" font-size="11.5">SERIAL</text>
+    <rect x="1262" y="182" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="1270" y="186" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="1293" y="198" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="1326" y="198" fill="#0F172A" font-size="12.5" font-weight="500">ma_nguoi_dung</text>
+    <text x="1495" y="198" fill="#475569" font-size="11.5">VARCHAR(30) NOT NULL</text>
+    <text x="1326" y="222" fill="#0F172A" font-size="12.5" font-weight="500">ho_ten</text>
+    <text x="1495" y="222" fill="#475569" font-size="11.5">VARCHAR(100) NOT NULL</text>
+    <rect x="1262" y="230" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="1270" y="234" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="1293" y="246" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="1326" y="246" fill="#0F172A" font-size="12.5" font-weight="500">so_dien_thoai</text>
+    <text x="1495" y="246" fill="#475569" font-size="11.5">VARCHAR(15) NOT NULL</text>
+    <rect x="1270" y="258" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="1293" y="270" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="1326" y="270" fill="#0F172A" font-size="12.5" font-weight="500">email</text>
+    <text x="1495" y="270" fill="#475569" font-size="11.5">VARCHAR(120)</text>
+    <rect x="1262" y="278" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1326" y="294" fill="#0F172A" font-size="12.5" font-weight="500">mat_khau_hash</text>
+    <text x="1495" y="294" fill="#475569" font-size="11.5">VARCHAR(255) NOT NULL</text>
+    <text x="1326" y="318" fill="#0F172A" font-size="12.5" font-weight="500">vai_tro</text>
+    <text x="1495" y="318" fill="#475569" font-size="11.5">VARCHAR(30) NOT NULL</text>
+    <rect x="1262" y="326" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1326" y="342" fill="#0F172A" font-size="12.5" font-weight="500">dia_chi</text>
+    <text x="1495" y="342" fill="#475569" font-size="11.5">TEXT</text>
+    <text x="1326" y="366" fill="#0F172A" font-size="12.5" font-weight="500">anh_dai_dien</text>
+    <text x="1495" y="366" fill="#475569" font-size="11.5">TEXT</text>
+    <rect x="1262" y="374" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1326" y="390" fill="#0F172A" font-size="12.5" font-weight="500">trang_thai</text>
+    <text x="1495" y="390" fill="#475569" font-size="11.5">VARCHAR(20) NOT NULL</text>
+    <text x="1326" y="414" fill="#0F172A" font-size="12.5" font-weight="500">ngay_tao</text>
+    <text x="1495" y="414" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+    <rect x="1262" y="422" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1326" y="438" fill="#0F172A" font-size="12.5" font-weight="500">ngay_cap_nhat</text>
+    <text x="1495" y="438" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+  </g>
+
+  <!-- Table: don_hang -->
+  <g filter="url(#shadow)">
+    <rect x="1260" y="525" width="480" height="574" rx="8" fill="#FFFBEB" stroke="#92400E" stroke-width="1.6"/>
+    <path d="M 1260 533 Q 1260 525 1268 525 L 1732 525 Q 1740 525 1740 533 L 1740 563 L 1260 563 Z" fill="#B45309"/>
+    <text x="1274" y="550" fill="#FFFFFF" font-size="15" font-weight="bold">7. don_hang (Đơn hàng tại quầy &amp; Giao hàng)</text>
+    <rect x="1270" y="567" width="46" height="16" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.7"/>
+    <text x="1293" y="579" text-anchor="middle" fill="#B45309" font-size="10" font-weight="bold">PK</text>
+    <text x="1326" y="579" fill="#0F172A" font-size="12.5" font-weight="700">id</text>
+    <text x="1495" y="579" fill="#475569" font-size="11.5">SERIAL</text>
+    <rect x="1262" y="587" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="1270" y="591" width="46" height="16" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.7"/>
+    <text x="1293" y="603" text-anchor="middle" fill="#1D4ED8" font-size="10" font-weight="bold">UK</text>
+    <text x="1326" y="603" fill="#0F172A" font-size="12.5" font-weight="500">ma_don_hang</text>
+    <text x="1495" y="603" fill="#475569" font-size="11.5">VARCHAR(40) NOT NULL</text>
+    <rect x="1270" y="615" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="1293" y="627" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="1326" y="627" fill="#0F172A" font-size="12.5" font-weight="700">khach_hang_id</text>
+    <text x="1495" y="627" fill="#475569" font-size="11.5">INTEGER -&gt; nguoi_dung.id</text>
+    <rect x="1262" y="635" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="1270" y="639" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="1293" y="651" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="1326" y="651" fill="#0F172A" font-size="12.5" font-weight="700">nhan_vien_ban_id</text>
+    <text x="1495" y="651" fill="#475569" font-size="11.5">INTEGER -&gt; nguoi_dung.id</text>
+    <rect x="1270" y="663" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="1293" y="675" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="1326" y="675" fill="#0F172A" font-size="12.5" font-weight="700">nhan_vien_giao_id</text>
+    <text x="1495" y="675" fill="#475569" font-size="11.5">INTEGER -&gt; nguoi_dung.id</text>
+    <rect x="1262" y="683" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="1270" y="687" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="1293" y="699" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="1326" y="699" fill="#0F172A" font-size="12.5" font-weight="700">khuyen_mai_id</text>
+    <text x="1495" y="699" fill="#475569" font-size="11.5">INTEGER -&gt; khuyen_mai.id</text>
+    <text x="1326" y="723" fill="#0F172A" font-size="12.5" font-weight="500">loai_don</text>
+    <text x="1495" y="723" fill="#475569" font-size="11.5">VARCHAR(20) NOT NULL (TAI_QUAY/GIAO_HANG)</text>
+    <rect x="1262" y="731" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1326" y="747" fill="#0F172A" font-size="12.5" font-weight="500">trang_thai</text>
+    <text x="1495" y="747" fill="#475569" font-size="11.5">VARCHAR(30) NOT NULL</text>
+    <text x="1326" y="771" fill="#0F172A" font-size="12.5" font-weight="500">phuong_thuc_thanh_toan</text>
+    <text x="1495" y="771" fill="#475569" font-size="11.5">VARCHAR(30) NOT NULL</text>
+    <rect x="1262" y="779" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1326" y="795" fill="#0F172A" font-size="12.5" font-weight="500">trang_thai_thanh_toan</text>
+    <text x="1495" y="795" fill="#475569" font-size="11.5">VARCHAR(20) NOT NULL</text>
+    <text x="1326" y="819" fill="#0F172A" font-size="12.5" font-weight="500">nguoi_nhan</text>
+    <text x="1495" y="819" fill="#475569" font-size="11.5">VARCHAR(100)</text>
+    <rect x="1262" y="827" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1326" y="843" fill="#0F172A" font-size="12.5" font-weight="500">so_dien_thoai_nhan</text>
+    <text x="1495" y="843" fill="#475569" font-size="11.5">VARCHAR(15)</text>
+    <text x="1326" y="867" fill="#0F172A" font-size="12.5" font-weight="500">dia_chi_giao</text>
+    <text x="1495" y="867" fill="#475569" font-size="11.5">TEXT</text>
+    <rect x="1262" y="875" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1326" y="891" fill="#0F172A" font-size="12.5" font-weight="500">khung_gio_giao</text>
+    <text x="1495" y="891" fill="#475569" font-size="11.5">VARCHAR(50)</text>
+    <text x="1326" y="915" fill="#0F172A" font-size="12.5" font-weight="500">tong_tien_hang</text>
+    <text x="1495" y="915" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+    <rect x="1262" y="923" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1326" y="939" fill="#0F172A" font-size="12.5" font-weight="500">tien_giam_gia</text>
+    <text x="1495" y="939" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+    <text x="1326" y="963" fill="#0F172A" font-size="12.5" font-weight="500">phi_giao_hang</text>
+    <text x="1495" y="963" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+    <rect x="1262" y="971" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1326" y="987" fill="#0F172A" font-size="12.5" font-weight="500">tong_thanh_toan</text>
+    <text x="1495" y="987" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+    <text x="1326" y="1011" fill="#0F172A" font-size="12.5" font-weight="500">ghi_chu</text>
+    <text x="1495" y="1011" fill="#475569" font-size="11.5">TEXT</text>
+    <rect x="1262" y="1019" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1326" y="1035" fill="#0F172A" font-size="12.5" font-weight="500">ngay_dat</text>
+    <text x="1495" y="1035" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+    <text x="1326" y="1059" fill="#0F172A" font-size="12.5" font-weight="500">ngay_giao_thanh_cong</text>
+    <text x="1495" y="1059" fill="#475569" font-size="11.5">TIMESTAMPTZ</text>
+    <rect x="1262" y="1067" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1326" y="1083" fill="#0F172A" font-size="12.5" font-weight="500">ngay_cap_nhat</text>
+    <text x="1495" y="1083" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+  </g>
+
+  <!-- Table: chi_tiet_don -->
+  <g filter="url(#shadow)">
+    <rect x="1860" y="120" width="480" height="238" rx="8" fill="#FFFBEB" stroke="#92400E" stroke-width="1.6"/>
+    <path d="M 1860 128 Q 1860 120 1868 120 L 2332 120 Q 2340 120 2340 128 L 2340 158 L 1860 158 Z" fill="#B45309"/>
+    <text x="1874" y="145" fill="#FFFFFF" font-size="15" font-weight="bold">8. chi_tiet_don (Chi tiết dòng đơn hàng)</text>
+    <rect x="1870" y="162" width="46" height="16" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.7"/>
+    <text x="1893" y="174" text-anchor="middle" fill="#B45309" font-size="10" font-weight="bold">PK</text>
+    <text x="1926" y="174" fill="#0F172A" font-size="12.5" font-weight="700">id</text>
+    <text x="2095" y="174" fill="#475569" font-size="11.5">SERIAL</text>
+    <rect x="1862" y="182" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="1870" y="186" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="1893" y="198" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK,UK</text>
+    <text x="1926" y="198" fill="#0F172A" font-size="12.5" font-weight="700">don_hang_id</text>
+    <text x="2095" y="198" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; don_hang.id</text>
+    <rect x="1870" y="210" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="1893" y="222" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK,UK</text>
+    <text x="1926" y="222" fill="#0F172A" font-size="12.5" font-weight="700">san_pham_id</text>
+    <text x="2095" y="222" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; san_pham.id</text>
+    <rect x="1862" y="230" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="1870" y="234" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="1893" y="246" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="1926" y="246" fill="#0F172A" font-size="12.5" font-weight="700">khuyen_mai_id</text>
+    <text x="2095" y="246" fill="#475569" font-size="11.5">INTEGER -&gt; khuyen_mai.id</text>
+    <text x="1926" y="270" fill="#0F172A" font-size="12.5" font-weight="500">so_luong</text>
+    <text x="2095" y="270" fill="#475569" font-size="11.5">INTEGER NOT NULL (&gt; 0)</text>
+    <rect x="1862" y="278" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1926" y="294" fill="#0F172A" font-size="12.5" font-weight="500">don_gia_ban</text>
+    <text x="2095" y="294" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+    <text x="1926" y="318" fill="#0F172A" font-size="12.5" font-weight="500">tien_giam</text>
+    <text x="2095" y="318" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+    <rect x="1862" y="326" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1926" y="342" fill="#0F172A" font-size="12.5" font-weight="500">thanh_tien</text>
+    <text x="2095" y="342" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+  </g>
+
+  <!-- Table: chi_tiet_don_lo -->
+  <g filter="url(#shadow)">
+    <rect x="1860" y="425" width="480" height="214" rx="8" fill="#F0FDF4" stroke="#166534" stroke-width="1.6"/>
+    <path d="M 1860 433 Q 1860 425 1868 425 L 2332 425 Q 2340 425 2340 433 L 2340 463 L 1860 463 Z" fill="#15803D"/>
+    <text x="1874" y="450" fill="#FFFFFF" font-size="15" font-weight="bold">9. chi_tiet_don_lo (Truy vết xuất lô FEFO &amp; Giá vốn)</text>
+    <rect x="1870" y="467" width="46" height="16" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.7"/>
+    <text x="1893" y="479" text-anchor="middle" fill="#B45309" font-size="10" font-weight="bold">PK</text>
+    <text x="1926" y="479" fill="#0F172A" font-size="12.5" font-weight="700">id</text>
+    <text x="2095" y="479" fill="#475569" font-size="11.5">SERIAL</text>
+    <rect x="1862" y="487" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="1870" y="491" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="1893" y="503" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK,UK</text>
+    <text x="1926" y="503" fill="#0F172A" font-size="12.5" font-weight="700">chi_tiet_don_id</text>
+    <text x="2095" y="503" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; chi_tiet_don.id</text>
+    <rect x="1870" y="515" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="1893" y="527" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK,UK</text>
+    <text x="1926" y="527" fill="#0F172A" font-size="12.5" font-weight="700">lo_hang_id</text>
+    <text x="2095" y="527" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; lo_hang.id</text>
+    <rect x="1862" y="535" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1926" y="551" fill="#0F172A" font-size="12.5" font-weight="500">so_luong_xuat</text>
+    <text x="2095" y="551" fill="#475569" font-size="11.5">INTEGER NOT NULL (&gt; 0)</text>
+    <text x="1926" y="575" fill="#0F172A" font-size="12.5" font-weight="500">gia_nhap_tai_thoi_diem_ban</text>
+    <text x="2095" y="575" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+    <rect x="1862" y="583" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1926" y="599" fill="#0F172A" font-size="12.5" font-weight="500">thanh_tien_gia_von</text>
+    <text x="2095" y="599" fill="#475569" font-size="11.5">NUMERIC(12,2) NOT NULL</text>
+    <text x="1926" y="623" fill="#0F172A" font-size="12.5" font-weight="500">ngay_xuat</text>
+    <text x="2095" y="623" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+  </g>
+
+  <!-- Table: thong_bao -->
+  <g filter="url(#shadow)">
+    <rect x="1860" y="710" width="480" height="310" rx="8" fill="#F0FDFA" stroke="#115E59" stroke-width="1.6"/>
+    <path d="M 1860 718 Q 1860 710 1868 710 L 2332 710 Q 2340 710 2340 718 L 2340 748 L 1860 748 Z" fill="#0F766E"/>
+    <text x="1874" y="735" fill="#FFFFFF" font-size="15" font-weight="bold">13. thong_bao (Thông báo khách hàng &amp; kho)</text>
+    <rect x="1870" y="752" width="46" height="16" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.7"/>
+    <text x="1893" y="764" text-anchor="middle" fill="#B45309" font-size="10" font-weight="bold">PK</text>
+    <text x="1926" y="764" fill="#0F172A" font-size="12.5" font-weight="700">id</text>
+    <text x="2095" y="764" fill="#475569" font-size="11.5">SERIAL</text>
+    <rect x="1862" y="772" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="1870" y="776" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="1893" y="788" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="1926" y="788" fill="#0F172A" font-size="12.5" font-weight="700">nguoi_nhan_id</text>
+    <text x="2095" y="788" fill="#475569" font-size="11.5">INTEGER NOT NULL -&gt; nguoi_dung.id</text>
+    <text x="1926" y="812" fill="#0F172A" font-size="12.5" font-weight="500">loai_thong_bao</text>
+    <text x="2095" y="812" fill="#475569" font-size="11.5">VARCHAR(30) NOT NULL</text>
+    <rect x="1862" y="820" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1926" y="836" fill="#0F172A" font-size="12.5" font-weight="500">tieu_de</text>
+    <text x="2095" y="836" fill="#475569" font-size="11.5">VARCHAR(200) NOT NULL</text>
+    <text x="1926" y="860" fill="#0F172A" font-size="12.5" font-weight="500">noi_dung</text>
+    <text x="2095" y="860" fill="#475569" font-size="11.5">TEXT NOT NULL</text>
+    <rect x="1862" y="868" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="1870" y="872" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="1893" y="884" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="1926" y="884" fill="#0F172A" font-size="12.5" font-weight="700">don_hang_id</text>
+    <text x="2095" y="884" fill="#475569" font-size="11.5">INTEGER -&gt; don_hang.id</text>
+    <rect x="1870" y="896" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="1893" y="908" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="1926" y="908" fill="#0F172A" font-size="12.5" font-weight="700">khuyen_mai_id</text>
+    <text x="2095" y="908" fill="#475569" font-size="11.5">INTEGER -&gt; khuyen_mai.id</text>
+    <rect x="1862" y="916" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <rect x="1870" y="920" width="46" height="16" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.7"/>
+    <text x="1893" y="932" text-anchor="middle" fill="#15803D" font-size="10" font-weight="bold">FK</text>
+    <text x="1926" y="932" fill="#0F172A" font-size="12.5" font-weight="700">lo_hang_id</text>
+    <text x="2095" y="932" fill="#475569" font-size="11.5">INTEGER -&gt; lo_hang.id</text>
+    <text x="1926" y="956" fill="#0F172A" font-size="12.5" font-weight="500">da_doc</text>
+    <text x="2095" y="956" fill="#475569" font-size="11.5">BOOLEAN NOT NULL DEFAULT FALSE</text>
+    <rect x="1862" y="964" width="476" height="24" fill="#E2E8F0" fill-opacity="0.35"/>
+    <text x="1926" y="980" fill="#0F172A" font-size="12.5" font-weight="500">ngay_tao</text>
+    <text x="2095" y="980" fill="#475569" font-size="11.5">TIMESTAMPTZ NOT NULL</text>
+    <text x="1926" y="1004" fill="#0F172A" font-size="12.5" font-weight="500">ngay_doc</text>
+    <text x="2095" y="1004" fill="#475569" font-size="11.5">TIMESTAMPTZ</text>
+  </g>
+
+  <!-- Legend Card -->
+  <g filter="url(#shadow)">
+    <rect x="1260" y="1140" width="480" height="530" rx="8" fill="#FFFFFF" stroke="#64748B" stroke-width="1.5"/>
+    <rect x="1260" y="1140" width="480" height="38" rx="8" fill="#334155"/>
+    <text x="1276" y="1165" fill="#FFFFFF" font-size="15" font-weight="bold">CHÚ THÍCH KÝ HIỆU &amp; QUAN HỆ BẢNG (ERD LEGEND)</text>
+
+    <rect x="1280" y="1195" width="46" height="18" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="0.8"/>
+    <text x="1303" y="1208" text-anchor="middle" fill="#B45309" font-size="10.5" font-weight="bold">PK</text>
+    <text x="1340" y="1209" fill="#0F172A" font-size="13">Primary Key – Khóa chính định danh duy nhất (SERIAL)</text>
+
+    <rect x="1280" y="1227" width="46" height="18" rx="3" fill="#DCFCE7" stroke="#15803D" stroke-width="0.8"/>
+    <text x="1303" y="1240" text-anchor="middle" fill="#15803D" font-size="10.5" font-weight="bold">FK</text>
+    <text x="1340" y="1241" fill="#0F172A" font-size="13">Foreign Key – Khóa ngoại tham chiếu toàn vẹn dữ liệu</text>
+
+    <rect x="1280" y="1259" width="46" height="18" rx="3" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="0.8"/>
+    <text x="1303" y="1272" text-anchor="middle" fill="#1D4ED8" font-size="10.5" font-weight="bold">UK</text>
+    <text x="1340" y="1273" fill="#0F172A" font-size="13">Unique Key – Ràng buộc duy nhất (mã, barcode, SĐT, cặp khóa)</text>
+
+    <line x1="1280" y1="1304" x2="1326" y2="1304" stroke="#334155" stroke-width="2" marker-start="url(#bar-one)" marker-end="url(#arrow-many)"/>
+    <text x="1340" y="1308" fill="#0F172A" font-size="13">Quan hệ 1 - N (Một bản ghi cha liên kết nhiều bản ghi con)</text>
+
+    <text x="1280" y="1348" fill="#1E293B" font-size="13.5" font-weight="bold">Tách quan hệ N - N thành hai quan hệ 1 - N qua bảng trung gian:</text>
+    <text x="1280" y="1372" fill="#334155" font-size="12.5">• don_hang (1) — (N) chi_tiet_don (N) — (1) san_pham</text>
+    <text x="1280" y="1394" fill="#334155" font-size="12.5">• chi_tiet_don (1) — (N) chi_tiet_don_lo (N) — (1) lo_hang</text>
+    <text x="1280" y="1416" fill="#334155" font-size="12.5">• nguoi_dung (1) — (N) mua_thuong_xuyen (N) — (1) san_pham</text>
+    <text x="1280" y="1438" fill="#334155" font-size="12.5">• san_pham (1) — (N) lo_hang (N) — (1) nha_cung_cap</text>
+
+    <text x="1280" y="1478" fill="#1E293B" font-size="13.5" font-weight="bold">Phân nhóm màu sắc nghiệp vụ:</text>
+    <rect x="1280" y="1492" width="14" height="14" rx="2" fill="#1E40AF"/>
+    <text x="1302" y="1504" fill="#334155" font-size="12.5">Danh mục, Sản phẩm &amp; Nhà cung cấp (Master Data)</text>
+    <rect x="1280" y="1516" width="14" height="14" rx="2" fill="#15803D"/>
+    <text x="1302" y="1528" fill="#334155" font-size="12.5">Quản lý Lô hàng, Truy vết xuất FEFO &amp; Kiểm kê kho</text>
+    <rect x="1280" y="1540" width="14" height="14" rx="2" fill="#B45309"/>
+    <text x="1302" y="1552" fill="#334155" font-size="12.5">Đơn hàng tại quầy (POS), Đơn giao hàng &amp; Chi tiết đơn</text>
+    <rect x="1280" y="1564" width="14" height="14" rx="2" fill="#7E22CE"/>
+    <text x="1302" y="1576" fill="#334155" font-size="12.5">Chương trình Khuyến mãi (Lô cận hạn / Sản phẩm / Đơn hàng)</text>
+    <rect x="1280" y="1588" width="14" height="14" rx="2" fill="#B91C1C"/>
+    <text x="1302" y="1600" fill="#334155" font-size="12.5">Tiêu hủy lô hàng hết hạn sử dụng hoặc hư hỏng</text>
+    <rect x="1280" y="1612" width="14" height="14" rx="2" fill="#0F766E"/>
+    <text x="1302" y="1624" fill="#334155" font-size="12.5">Mua thường xuyên &amp; Hệ thống Thông báo đa kênh</text>
+  </g>
+
+  <!-- FEFO & Cost Accounting Specification Card -->
+  <g filter="url(#shadow)">
+    <rect x="1860" y="1060" width="480" height="610" rx="8" fill="#FFFFFF" stroke="#15803D" stroke-width="1.6"/>
+    <rect x="1860" y="1060" width="480" height="38" rx="8" fill="#15803D"/>
+    <text x="1876" y="1085" fill="#FFFFFF" font-size="15" font-weight="bold">NGHIỆP VỤ CỐT LÕI: XUẤT KHO FEFO &amp; TÍNH LÃI GỘP</text>
+
+    <text x="1880" y="1124" fill="#166534" font-size="13.5" font-weight="bold">1. Nguyên tắc xuất kho FEFO (First Expired, First Out):</text>
+    <text x="1880" y="1148" fill="#334155" font-size="12.5">• Khi bán hàng, hệ thống chỉ truy vấn các lô thuộc bảng lo_hang</text>
+    <text x="1880" y="1168" fill="#334155" font-size="12.5">  thỏa mãn: trang_thai = 'CON_HANG', so_luong_con &gt; 0,</text>
+    <text x="1880" y="1188" fill="#334155" font-size="12.5">  và han_su_dung &gt;= CURRENT_DATE.</text>
+    <text x="1880" y="1210" fill="#334155" font-size="12.5">• Thứ tự ưu tiên khóa dòng (SELECT ... FOR UPDATE):</text>
+    <text x="1880" y="1230" fill="#0F172A" font-size="12.5" font-weight="bold">  ORDER BY han_su_dung ASC, ngay_nhap ASC, id ASC</text>
+    <text x="1880" y="1252" fill="#334155" font-size="12.5">• Nếu 1 lô không đủ số lượng khách mua, tự động tách dòng</text>
+    <text x="1880" y="1272" fill="#334155" font-size="12.5">  xuất kho vào bảng chi_tiet_don_lo từ nhiều lô liên tiếp.</text>
+
+    <text x="1880" y="1310" fill="#166534" font-size="13.5" font-weight="bold">2. Công thức bảo toàn tồn kho lô hàng:</text>
+    <rect x="1880" y="1322" width="440" height="52" rx="6" fill="#F0FDF4" stroke="#86EFAC"/>
+    <text x="1892" y="1344" fill="#14532D" font-size="12" font-weight="bold">lo_hang.so_luong_con = lo_hang.so_luong_nhap</text>
+    <text x="1892" y="1364" fill="#14532D" font-size="12" font-weight="bold">  - SUM(chi_tiet_don_lo.so_luong_xuat) - SUM(huy_hang.so_luong_huy)</text>
+
+    <text x="1880" y="1408" fill="#166534" font-size="13.5" font-weight="bold">3. Tính Giá vốn thực tế &amp; Lãi gộp bất biến theo thời gian:</text>
+    <text x="1880" y="1432" fill="#334155" font-size="12.5">• Tại thời điểm bán, bảng chi_tiet_don_lo lưu snapshot:</text>
+    <text x="1880" y="1452" fill="#0F172A" font-size="12.5" font-weight="bold">  gia_nhap_tai_thoi_diem_ban = lo_hang.gia_nhap</text>
+    <text x="1880" y="1472" fill="#0F172A" font-size="12.5" font-weight="bold">  thanh_tien_gia_von = so_luong_xuat * gia_nhap_tai_thoi_diem_ban</text>
+    <text x="1880" y="1496" fill="#334155" font-size="12.5">• Không bao giờ lấy giá nhập của lô mới để tính lại đơn hàng cũ.</text>
+    <rect x="1880" y="1510" width="440" height="54" rx="6" fill="#FEFCE8" stroke="#FDE047"/>
+    <text x="1892" y="1532" fill="#713F12" font-size="12.5" font-weight="bold">Doanh thu thuần dòng = chi_tiet_don.thanh_tien</text>
+    <text x="1892" y="1552" fill="#713F12" font-size="12.5" font-weight="bold">Lãi gộp = SUM(chi_tiet_don.thanh_tien) - SUM(thanh_tien_gia_von)</text>
+
+    <text x="1880" y="1596" fill="#166534" font-size="13.5" font-weight="bold">4. Chống âm kho khi giao dịch đồng thời (Concurrency):</text>
+    <text x="1880" y="1618" fill="#334155" font-size="12.5">• Kết hợp PostgreSQL Transaction (BEGIN ... COMMIT),</text>
+    <text x="1880" y="1638" fill="#334155" font-size="12.5">  Row-Level Lock (FOR UPDATE) và CHECK (so_luong_con &gt;= 0).</text>
+  </g>
+</svg>

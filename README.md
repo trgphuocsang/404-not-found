@@ -37,6 +37,15 @@ Dự án xây dựng hệ thống quản lý cửa hàng bách hóa gồm 3 thà
 
 ![Sơ đồ Use Case tổng quát](docs/diagrams/use_case_.svg)
 
+### 2. Sơ đồ Thực thể liên kết (ERD) & Cơ sở dữ liệu (Database)
+
+![Sơ đồ ERD Hệ thống quản lý cửa hàng bách hóa](docs/diagrams/erd.svg)
+
+- **Hệ quản trị CSDL:** PostgreSQL (tương thích PostgreSQL Local 15+ và Supabase).
+- **Cấu trúc bảng:** Gồm **13 bảng nghiệp vụ** (`nguoi_dung`, `danh_muc`, `nha_cung_cap`, `san_pham`, `lo_hang`, `khuyen_mai`, `don_hang`, `chi_tiet_don`, `chi_tiet_don_lo`, `kiem_ke`, `huy_hang`, `mua_thuong_xuyen`, `thong_bao`).
+- **Nghiệp vụ trọng tâm:** Quản lý tồn kho theo từng **Lô hàng (`lo_hang`)**, ưu tiên xuất kho theo nguyên tắc **FEFO (First Expired, First Out)** và truy vết giá vốn thực tế tại thời điểm bán qua bảng `chi_tiet_don_lo`.
+- **Tài liệu & Hướng dẫn khởi tạo Database Local (`bach_hoa_404`):** Xem chi tiết tại [**`database/README.md`**](database/README.md).
+
 ## 🛠️ Công nghệ sử dụng
 
 | Thành phần | Công nghệ |
