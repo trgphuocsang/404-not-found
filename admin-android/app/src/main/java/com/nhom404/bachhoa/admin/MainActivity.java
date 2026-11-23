@@ -8,7 +8,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         setLoading(true);
         tvStatus.setText(R.string.connection_loading);
 
-        healthCall = ApiClient.getApiService().checkHealth();
+        healthCall = ApiClient.getApiService(this).checkHealth();
 
         healthCall.enqueue(new Callback<HealthResponse>() {
 

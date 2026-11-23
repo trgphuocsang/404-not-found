@@ -1,5 +1,9 @@
 package com.nhom404.bachhoa.admin.network;
 
+import android.content.Context;
+
+import com.nhom404.bachhoa.admin.session.SessionManager;
+
 import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -10,10 +14,14 @@ public class ApiClient {
 
     private static ApiService apiService;
 
-    private ApiClient(){}
+    private ApiClient(){
 
-    public static synchronized ApiService getApiService(){
+    }
+
+    public static synchronized ApiService getApiService(Context context){
         if(apiService == null){
+            SessionManager sessionManager =
+                    new SessionManager(context.getApplicationContext());
             OkHttpClient httpClient = new OkHttpClient.Builder()
                     .connectTimeout(5, TimeUnit.SECONDS)
                     .readTimeout(30, TimeUnit.SECONDS)
