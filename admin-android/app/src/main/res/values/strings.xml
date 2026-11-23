@@ -1,3 +1,27 @@
 <resources>
-    <string name="app_name">BachHoaAdmin</string>
+    <string name="app_name">App Admin Bách Hóa</string>
+    <string name="connection_title">Nhóm 404 • Android Admin</string>
+    <string name="connection_initial">Chưa kiểm tra kết nối backend</string>
+    <string name="check_connection">Kiểm tra kết nối</string>
+    <string name="connection_loading">Đang kết nối backend…</string>
+    <string name="connection_success">Kết nối thành công\n%1$s</string>
+    <string name="connection_http_error">Backend trả về lỗi HTTP %1$d</string>
+    <string name="connection_invalid_response">Backend trả dữ liệu không đúng định dạng mong đợi</string>
+    <string name="connection_network_error">Không kết nối được backend. Kiểm tra Internet và server rồi thử lại.</string>
+    <string name="connection_data_error">Không đọc được dữ liệu backend trả về.</string>
+
+    <!--    LOGIN   -->
+    <string name="login_title">Đăng nhập quản trị</string>
+    <string name="login_account_label">Tài khoản</string>
+    <string name="login_account_hint">Nhập tài khoản</string>
+    <string name="login_password_label">Mật khẩu</string>
+    <string name="login_password_hint">Nhập mật khẩu</string>
+    <string name="login_button">Đăng nhập</string>
+
+    <string name="login_account_required">Vui lòng nhập tài khoản</string>
+    <string name="login_password_required">Vui lòng nhập mật khẩu</string>
+
+    <string name="login_error_generic">Không thể đăng nhập. Vui lòng thử lại.</string>
+    <string name="login_api_not_ready">Dữ liệu hợp lệ. Chưa kết nối API đăng nhập.</string>
+    <string name="open_connection_check">Kiểm tra kết nối</string>
 </resources>
