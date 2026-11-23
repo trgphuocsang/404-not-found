@@ -23,7 +23,9 @@ function xacThuc(req, res, next) {
 }
 
 // Lớp 2: phân quyền - "bạn được làm gì?"
-// Dùng sau xacThuc:  router.post("/", xacThuc, phanQuyen("chu_cua_hang"), handler)
+// Dùng sau xacThuc:  router.post("/", xacThuc, phanQuyen("CHU_CUA_HANG"), handler)
+// Vai trò viết HOA, khớp CHECK trong schema: CHU_CUA_HANG, NHAN_VIEN_BAN_HANG,
+// NHAN_VIEN_GIAO_HANG, KHACH_HANG
 function phanQuyen(...vaiTroChoPhep) {
     return (req, res, next) => {
         if (!req.nguoiDung || !vaiTroChoPhep.includes(req.nguoiDung.vaiTro)) {
