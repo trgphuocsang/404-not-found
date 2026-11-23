@@ -8,7 +8,10 @@ app.use(express.json());
 const healthRoutes = require("./routes/health");
 const errorHandler = require("./middleware/errorHandler");
 
+const authRoutes = require("./routes/auth");
+
 app.use("/health", healthRoutes);
+app.use("/auth", authRoutes);
 
 app.use(errorHandler);
 
