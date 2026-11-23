@@ -14,7 +14,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     private List<CartItem> cartItems;
     private OnCartChangedListener listener;
 
-    // Interface để thông báo ngược lại về MainActivity khi giỏ hàng thay đổi
     public interface OnCartChangedListener {
         void onCartChanged();
     }
@@ -39,14 +38,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         holder.tvQuantity.setText(String.valueOf(item.getQuantity()));
         holder.tvItemPrice.setText(String.format("%,.0f đ", item.getPrice() * item.getQuantity()));
 
-        // Nút Tăng (+)
+        // nút tăng (+)
         holder.btnPlus.setOnClickListener(v -> {
             item.setQuantity(item.getQuantity() + 1);
             notifyItemChanged(position);
             if (listener != null) listener.onCartChanged();
         });
 
-        // Nút Giảm (-)
+        // nút giảm (-)
         holder.btnMinus.setOnClickListener(v -> {
             if (item.getQuantity() > 1) {
                 item.setQuantity(item.getQuantity() - 1);
@@ -55,7 +54,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             }
         });
 
-        // Nút Xóa món (✕)
+        // nút xóa món (✕)
         holder.btnDelete.setOnClickListener(v -> {
             cartItems.remove(position);
             notifyDataSetChanged();

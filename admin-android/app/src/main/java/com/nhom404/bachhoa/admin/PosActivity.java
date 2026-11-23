@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class PosActivity extends AppCompatActivity {
-
+    private final PosRepository posRepository = new MockPosRepository();
     private RecyclerView rvCartItems;
     private CartAdapter cartAdapter;
     private List<CartItem> cartList;
@@ -128,12 +128,36 @@ public class PosActivity extends AppCompatActivity {
                     .setTitle("Xác nhận thanh toán")
                     .setMessage("Tổng tiền: " + String.format(Locale.getDefault(), "%,.0f đ", totalAmount) + "\n\nTiến hành hoàn tất đơn hàng?")
                     .setPositiveButton("Xác nhận", (dialog, which) -> {
-                        Toast.makeText(this, "Thanh toán thành công! Đã trừ tồn kho theo lô FEFO.", Toast.LENGTH_LONG).show();
+                        List<InvoiceResult.LineItem> invoiceItems = new ArrayList<>();
+                        for (CartItem item : cartList) {
+                            long unitPrice = (long) item.getPrice();
+                            int qty = item.getQuantity();
+                            long lineTotal = unitPrice * qty;
+                            invoiceItems.add(new InvoiceResult.LineItem(
+                                    item.getName(),
+                                    qty,
+                                    unitPrice,
+                                    lineTotal
+                            ));
+                        }
 
-                        cartList.clear();
-                        cartAdapter.notifyDataSetChanged();
-                        calculateTotalPrice();
-                        cardSummary.setVisibility(View.GONE);
+                        posRepository.checkoutCart(invoiceItems, new PosCallback<InvoiceResult>() {
+                            @Override
+                            public void onSuccess(InvoiceResult invoice) {
+                                Toast.makeText(PosActivity.this, "Thanh toán thành công!", Toast.LENGTH_SHORT).show();
+                                showInvoiceDialog(invoice, () -> {
+                                    cartList.clear();
+                                    cartAdapter.notifyDataSetChanged();
+                                    calculateTotalPrice();
+                                    cardSummary.setVisibility(View.GONE);
+                                });
+                            }
+
+                            @Override
+                            public void onError(String message) {
+                                Toast.makeText(PosActivity.this, message, Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     })
                     .setNegativeButton("Hủy", null)
                     .show();
@@ -177,5 +201,125 @@ public class PosActivity extends AppCompatActivity {
         }
         tvTotalPrice.setText(String.format(Locale.getDefault(), "%,.0f đ", total));
         btnCart.setText("Giỏ hàng (" + cartList.size() + ")");
+    }
+
+    private String formatMoneyD(long amount) {
+        if (amount == 0L) {
+            return "0d";
+        }
+        return String.format(Locale.getDefault(), "%,dd", amount).replace(',', '.') + "d";
+    }
+
+    private String buildInvoiceText(InvoiceResult invoice) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("====================================\n");
+        sb.append("          CUA HANG BACH HOA\n");
+        sb.append("          HOA DON BAN HANG\n");
+        sb.append("            DA THANH TOAN\n");
+        sb.append("====================================\n");
+        sb.append("Ma hoa don      : ").append(invoice.getInvoiceCode()).append("\n");
+        sb.append("Ngay lap        : ").append(invoice.getCreatedDate()).append("\n");
+        sb.append("Gio thanh toan  : ").append(invoice.getCreatedTime()).append("\n");
+        sb.append("------------------------------------\n");
+        sb.append("CHI TIET DON HANG\n");
+        sb.append(String.format(Locale.US, "%-20s %2s %10s\n", "San pham", "SL", "Thanh tien"));
+        sb.append("------------------------------------\n");
+
+        if (invoice.getItems() != null) {
+            for (InvoiceResult.LineItem item : invoice.getItems()) {
+                String name = item.getProductName();
+                if (name == null) {
+                    name = "";
+                }
+                if (name.length() > 20) {
+                    name = name.substring(0, 19) + ".";
+                }
+                sb.append(String.format(Locale.US, "%-20s %2d %10s\n",
+                        name,
+                        item.getQuantity(),
+                        formatMoneyD(item.getLineTotal())));
+            }
+        }
+
+        sb.append("------------------------------------\n");
+        sb.append(String.format(Locale.US, "%-16s: %17s\n",
+                "Tam tinh", formatMoneyD(invoice.getSubtotalAmount())));
+        sb.append(String.format(Locale.US, "%-16s: %17s\n",
+                "Giam gia", formatMoneyD(invoice.getDiscountAmount())));
+        sb.append(String.format(Locale.US, "%-16s: %17s\n",
+                "TONG THANH TOAN", formatMoneyD(invoice.getTotalAmount())));
+        sb.append("====================================\n");
+        sb.append("         CAM ON QUY KHACH!\n");
+        sb.append("    Hen gap lai quy khach lan sau.\n");
+        sb.append("====================================\n");
+        return sb.toString();
+    }
+
+    private java.io.File exportInvoiceToTxt(InvoiceResult invoice) {
+        java.io.File dir = getExternalFilesDir(android.os.Environment.DIRECTORY_DOCUMENTS);
+        if (dir != null && !dir.exists()) {
+            //noinspection ResultOfMethodCallIgnored
+            dir.mkdirs();
+        }
+        String fileName = "HoaDon_" + invoice.getInvoiceCode() + ".txt";
+        java.io.File file = new java.io.File(dir, fileName);
+        String content = buildInvoiceText(invoice);
+
+        try (java.io.FileOutputStream fos = new java.io.FileOutputStream(file)) {
+            fos.write(content.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            fos.flush();
+            Toast.makeText(this, "Đã xuất hóa đơn: " + file.getName(), Toast.LENGTH_LONG).show();
+            return file;
+        } catch (java.io.IOException e) {
+            Toast.makeText(this, "Xuất hóa đơn thất bại: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            return null;
+        }
+    }
+
+    private void shareInvoiceText(InvoiceResult invoice) {
+        android.content.Intent shareIntent = new android.content.Intent(android.content.Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Hóa đơn " + invoice.getInvoiceCode());
+        shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, buildInvoiceText(invoice));
+        startActivity(android.content.Intent.createChooser(shareIntent, "Xuất / Chia sẻ hóa đơn"));
+    }
+
+    private void showInvoiceDialog(InvoiceResult invoice, Runnable onCloseResetCart) {
+        android.widget.ScrollView scrollView = new android.widget.ScrollView(this);
+        android.widget.TextView tvInvoice = new android.widget.TextView(this);
+        int pad = (int) (16 * getResources().getDisplayMetrics().density);
+        tvInvoice.setPadding(pad, pad, pad, pad);
+        tvInvoice.setTextIsSelectable(true);
+        tvInvoice.setTypeface(android.graphics.Typeface.MONOSPACE);
+        tvInvoice.setText(buildInvoiceText(invoice));
+        scrollView.addView(tvInvoice);
+
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle("Hóa đơn " + invoice.getInvoiceCode())
+                .setView(scrollView)
+                .setCancelable(false)
+                .setPositiveButton("Xuất file (.txt)", null)
+                .setNeutralButton("Chia sẻ", null)
+                .setNegativeButton("Đóng", (d, which) -> {
+                    if (onCloseResetCart != null) {
+                        onCloseResetCart.run();
+                    }
+                    d.dismiss();
+                })
+                .create();
+
+        dialog.setOnShowListener(d -> {
+            Button btnExport = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            if (btnExport != null) {
+                btnExport.setOnClickListener(v -> exportInvoiceToTxt(invoice));
+            }
+
+            Button btnShare = dialog.getButton(AlertDialog.BUTTON_NEUTRAL);
+            if (btnShare != null) {
+                btnShare.setOnClickListener(v -> shareInvoiceText(invoice));
+            }
+        });
+
+        dialog.show();
     }
 }

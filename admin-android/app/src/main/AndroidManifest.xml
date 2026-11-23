@@ -27,7 +27,7 @@
 
         <activity
             android:name=".PosActivity"
-            android:exported="false" />
+            android:exported="true" />
     </application>
 
 </manifest>
