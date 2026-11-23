@@ -5,7 +5,7 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
-    //Đợi đổi URL backend
+    //Đợi đổi URL backend đang chạy bằng đt thật
     private static final String BASE_URL = "http://127.0.0.1:3000/";
 
     private static ApiService apiService;
@@ -15,7 +15,7 @@ public class ApiClient {
     public static synchronized ApiService getApiService(){
         if(apiService == null){
             OkHttpClient httpClient = new OkHttpClient.Builder()
-                    .connectTimeout(30, TimeUnit.SECONDS)
+                    .connectTimeout(5, TimeUnit.SECONDS)
                     .readTimeout(30, TimeUnit.SECONDS)
                     .writeTimeout(30, TimeUnit.SECONDS)
                     .callTimeout(60, TimeUnit.SECONDS)
