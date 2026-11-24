@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const pool = require("../db");
 const { httpError } = require("../middleware/errorHandler");
+const { xacThuc, phanQuyen } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -115,6 +116,33 @@ router.post("/dang-nhap", async (req, res, next) => {
     } catch (err) {
         next(err);
     }
+});
+
+// ---------- THÔNG TIN CÁ NHÂN: GET /auth/toi ----------
+// Cần token đăng nhập. Dùng để app kiểm tra token còn hạn không và lấy thông tin cá nhân.
+router.get("/toi", xacThuc, async (req, res, next) => {
+    try {
+        const ketQua = await pool.query(
+            `SELECT id, ma_nguoi_dung, ho_ten, so_dien_thoai, email, vai_tro, dia_chi, anh_dai_dien, trang_thai
+             FROM nguoi_dung WHERE id = $1`,
+            [req.nguoiDung.id]
+        );
+        const nguoiDung = ketQua.rows[0];
+        if (!nguoiDung) {
+            throw httpError(404, "Không tìm thấy người dùng");
+        }
+        res.status(200).json(nguoiDung);
+    } catch (err) {
+        next(err);
+    }
+});
+
+// ---------- KIỂM TRA PHÂN QUYỀN ADMIN: GET /auth/kiem-tra-admin ----------
+// Chỉ CHU_CUA_HANG mới truy cập được. Dùng để test mã lỗi 403 Forbidden khi khách hàng gọi.
+router.get("/kiem-tra-admin", xacThuc, phanQuyen("CHU_CUA_HANG"), (req, res) => {
+    res.status(200).json({
+        message: "Xác thực và phân quyền thành công! Bạn có quyền CHU_CUA_HANG."
+    });
 });
 
 module.exports = router;
