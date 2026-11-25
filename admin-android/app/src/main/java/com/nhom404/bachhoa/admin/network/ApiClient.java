@@ -23,6 +23,7 @@ public class ApiClient {
             SessionManager sessionManager =
                     new SessionManager(context.getApplicationContext());
             OkHttpClient httpClient = new OkHttpClient.Builder()
+                    .addInterceptor(new AuthInterceptor(sessionManager, context))
                     .connectTimeout(5, TimeUnit.SECONDS)
                     .readTimeout(30, TimeUnit.SECONDS)
                     .writeTimeout(30, TimeUnit.SECONDS)

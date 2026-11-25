@@ -1,40 +1,49 @@
 package com.nhom404.bachhoa.admin;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
-import com.nhom404.bachhoa.admin.model.HealthResponse;
+import com.google.gson.JsonObject;
 import com.nhom404.bachhoa.admin.network.ApiClient;
-
-import java.io.IOException;
+import com.nhom404.bachhoa.admin.session.SessionManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "NHOM404_MAIN";
 
-    private ProgressBar progressLoading;
-    private TextView tvStatus;
-    private Button btnCheckConnection;
+    private SessionManager sessionManager;
+    private ProgressBar progressSession;
+    private TextView tvSessionStatus;
+    private Button btnRetrySession;
+    private LinearLayout menuContainer;
 
-    private Call<HealthResponse> healthCall;
+    private Call<JsonObject> sessionCall;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sessionManager = new SessionManager(this);
+
+        if (!sessionManager.hasSession()) {
+            openLogin();
+            return;
+        }
 
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -42,109 +51,232 @@ public class MainActivity extends AppCompatActivity {
         ViewCompat.setOnApplyWindowInsetsListener(
                 findViewById(R.id.main),
                 (view, insets) -> {
-                    Insets systemBars = insets.getInsets(
+                    Insets bars = insets.getInsets(
                             WindowInsetsCompat.Type.systemBars()
                     );
 
                     view.setPadding(
-                            systemBars.left,
-                            systemBars.top,
-                            systemBars.right,
-                            systemBars.bottom
+                            bars.left,
+                            bars.top,
+                            bars.right,
+                            bars.bottom
                     );
 
                     return insets;
                 }
         );
 
-        progressLoading = findViewById(R.id.progressLoading);
-        tvStatus = findViewById(R.id.tvStatus);
-        btnCheckConnection = findViewById(R.id.btnCheckConnection);
+        progressSession = findViewById(R.id.progressSession);
+        tvSessionStatus = findViewById(R.id.tvSessionStatus);
+        btnRetrySession = findViewById(R.id.btnRetrySession);
+        menuContainer = findViewById(R.id.menuContainer);
 
-        btnCheckConnection.setOnClickListener(view -> checkConnection());
+        btnRetrySession.setOnClickListener(view -> checkSession());
+
+        findViewById(R.id.btnLogout).setOnClickListener(view -> {
+            sessionManager.clearSession();
+            openLogin();
+        });
     }
-    private void checkConnection() {
-        setLoading(true);
-        tvStatus.setText(R.string.connection_loading);
 
-        healthCall = ApiClient.getApiService(this).checkHealth();
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-        healthCall.enqueue(new Callback<HealthResponse>() {
+        if (isFinishing()) {
+            return;
+        }
+
+        if (!sessionManager.hasSession()) {
+            openLogin();
+            return;
+        }
+
+        checkSession();
+    }
+
+    private void checkSession() {
+        if (sessionCall != null) {
+            sessionCall.cancel();
+        }
+
+        menuContainer.setVisibility(View.GONE);
+        progressSession.setVisibility(View.VISIBLE);
+        btnRetrySession.setVisibility(View.GONE);
+        tvSessionStatus.setText(R.string.session_checking);
+
+        // Ghi nhớ token để bỏ qua phản hồi thuộc phiên cũ.
+        String requestToken = sessionManager.getAccessToken();
+
+        sessionCall = ApiClient.getApiService(this).getCurrentUser();
+
+        sessionCall.enqueue(new Callback<JsonObject>() {
 
             @Override
             public void onResponse(
-                    Call<HealthResponse> call,
-                    Response<HealthResponse> response
+                    Call<JsonObject> call,
+                    Response<JsonObject> response
             ) {
-                if (call.isCanceled() || isFinishing() || isDestroyed()) {
+                if (shouldIgnore(call, requestToken)) {
                     return;
                 }
 
-                setLoading(false);
+                progressSession.setVisibility(View.GONE);
+
+                if (response.code() == 401) {
+                    // AuthInterceptor đảm nhiệm xóa phiên và điều hướng.
+                    return;
+                }
 
                 if (!response.isSuccessful()) {
-                    tvStatus.setText(getString(
-                            R.string.connection_http_error,
+                    tvSessionStatus.setText(getString(
+                            R.string.session_http_error,
                             response.code()
                     ));
-
-                    Log.w(TAG, "Health HTTP error: " + response.code());
+                    btnRetrySession.setVisibility(View.VISIBLE);
                     return;
                 }
 
-                HealthResponse body = response.body();
+                JsonObject body = response.body();
 
-                if (body == null
-                        || !"ok".equals(body.getStatus())
-                        || body.getMessage() == null) {
+                // /auth/toi trả vai_tro và trang_thai dạng snake_case.
+                String role = readString(body, "vai_tro");
+                String status = readString(body, "trang_thai");
 
-                    tvStatus.setText(R.string.connection_invalid_response);
-                    Log.w(TAG, "Invalid health response");
+                if (!isAdminRole(role) || !"HOAT_DONG".equals(status)) {
+                    sessionManager.clearSession();
+
+                    Toast.makeText(
+                            MainActivity.this,
+                            R.string.login_admin_only,
+                            Toast.LENGTH_LONG
+                    ).show();
+
+                    openLogin();
                     return;
                 }
 
-                tvStatus.setText(getString(
-                        R.string.connection_success,
-                        body.getMessage()
-                ));
+                // Cập nhật vai trò mới nhất lấy từ server.
+                sessionManager.saveSession(requestToken, role);
 
-                Log.d(TAG, "Health check successful");
+                setupRoleMenu(role);
+                tvSessionStatus.setText(R.string.session_valid);
+                menuContainer.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onFailure(
-                    Call<HealthResponse> call,
+                    Call<JsonObject> call,
                     Throwable throwable
             ) {
-                if (call.isCanceled() || isFinishing() || isDestroyed()) {
+                if (shouldIgnore(call, requestToken)) {
                     return;
                 }
 
-                setLoading(false);
-
-                if (throwable instanceof IOException) {
-                    tvStatus.setText(R.string.connection_network_error);
-                } else {
-                    tvStatus.setText(R.string.connection_data_error);
-                }
-
-                Log.e(TAG, "Health check failed", throwable);
+                progressSession.setVisibility(View.GONE);
+                tvSessionStatus.setText(R.string.session_network_error);
+                btnRetrySession.setVisibility(View.VISIBLE);
             }
         });
     }
 
-    private void setLoading(boolean loading) {
-        progressLoading.setVisibility(
-                loading ? View.VISIBLE : View.GONE
+    private boolean shouldIgnore(
+            Call<JsonObject> call,
+            String requestToken
+    ) {
+        return call.isCanceled()
+                || isFinishing()
+                || isDestroyed()
+                || requestToken == null
+                || !requestToken.equals(sessionManager.getAccessToken());
+    }
+
+    private String readString(JsonObject body, String key) {
+        if (body == null
+                || !body.has(key)
+                || !body.get(key).isJsonPrimitive()) {
+            return null;
+        }
+
+        return body.get(key).getAsString();
+    }
+
+    private boolean isAdminRole(String role) {
+        return "CHU_CUA_HANG".equals(role)
+                || "NHAN_VIEN_BAN_HANG".equals(role)
+                || "NHAN_VIEN_GIAO_HANG".equals(role);
+    }
+
+    private void setupRoleMenu(String role) {
+        menuContainer.removeAllViews();
+
+        int roleLabel;
+
+        // Chính sách menu đề xuất, cần thống nhất với nhóm.
+        if ("CHU_CUA_HANG".equals(role)) {
+            roleLabel = R.string.home_owner;
+
+            addPendingFeature(R.string.home_categories);
+            addPendingFeature(R.string.home_products);
+            addPendingFeature(R.string.home_suppliers);
+            addPendingFeature(R.string.home_batches);
+            addPendingFeature(R.string.home_stocktaking);
+            addPendingFeature(R.string.home_alerts);
+            addPendingFeature(R.string.home_sales);
+            addPendingFeature(R.string.home_orders);
+            addPendingFeature(R.string.home_reports);
+            addPendingFeature(R.string.home_promotions);
+
+        } else if ("NHAN_VIEN_BAN_HANG".equals(role)) {
+            roleLabel = R.string.home_sales_staff;
+
+            addPendingFeature(R.string.home_sales);
+            addPendingFeature(R.string.home_orders);
+
+        } else {
+            roleLabel = R.string.home_delivery_staff;
+
+            addPendingFeature(R.string.home_orders);
+        }
+
+        TextView tvRole = findViewById(R.id.tvRole);
+        tvRole.setText(getString(
+                R.string.home_role,
+                getString(roleLabel)
+        ));
+    }
+
+    private void addPendingFeature(@StringRes int titleRes) {
+        Button button = new Button(this);
+        button.setText(titleRes);
+
+        button.setOnClickListener(view ->
+                Toast.makeText(
+                        MainActivity.this,
+                        R.string.feature_pending,
+                        Toast.LENGTH_SHORT
+                ).show()
         );
 
-        btnCheckConnection.setEnabled(!loading);
+        menuContainer.addView(button);
+    }
+
+    private void openLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
+
+        intent.addFlags(
+                Intent.FLAG_ACTIVITY_NEW_TASK
+                        | Intent.FLAG_ACTIVITY_CLEAR_TASK
+        );
+
+        startActivity(intent);
+        finish();
     }
 
     @Override
     protected void onDestroy() {
-        if (healthCall != null) {
-            healthCall.cancel();
+        if (sessionCall != null) {
+            sessionCall.cancel();
         }
 
         super.onDestroy();
