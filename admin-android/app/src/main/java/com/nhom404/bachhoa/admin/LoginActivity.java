@@ -102,8 +102,19 @@ public class LoginActivity extends AppCompatActivity {
                 }
         );
 
-        findViewById(R.id.btnOpenConnectionCheck)
-                .setVisibility(View.VISIBLE);
+        //Check connect
+        View btnConnection = findViewById(R.id.btnOpenConnectionCheck);
+
+        btnConnection.setVisibility(View.VISIBLE);
+
+        btnConnection.setOnClickListener(view -> {
+            Intent intent = new Intent(
+                    LoginActivity.this,
+                    ConnectionCheckActivity.class
+            );
+
+            startActivity(intent);
+        });
     }
 
     private void attemptLogin() {

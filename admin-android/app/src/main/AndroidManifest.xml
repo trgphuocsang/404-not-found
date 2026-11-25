@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BachHoaAdmin">
         <activity
+            android:name=".ConnectionCheckActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
