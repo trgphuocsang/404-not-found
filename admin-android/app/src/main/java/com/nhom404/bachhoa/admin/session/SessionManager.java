@@ -3,7 +3,7 @@ package com.nhom404.bachhoa.admin.session;
 import android.content.Context;
 import android.content.SharedPreferences;
 public class SessionManager {
-    private static final String PREF_NAME = "_session";
+    private static final String PREF_NAME = "nhom404_session";
     private static final String KEY_ACCESS_TOKEN = "access_token";
     private static final String KEY_ROLE = "role";
     private final SharedPreferences preferences;

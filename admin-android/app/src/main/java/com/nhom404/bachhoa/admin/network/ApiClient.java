@@ -10,7 +10,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
     //Đợi đổi URL backend đang chạy bằng đt thật
-    private static final String BASE_URL = "http://127.0.0.1:3000/";
+    private static final String BASE_URL = "http://10.0.2.2:3000/";
 
     private static ApiService apiService;
 
@@ -23,6 +23,7 @@ public class ApiClient {
             SessionManager sessionManager =
                     new SessionManager(context.getApplicationContext());
             OkHttpClient httpClient = new OkHttpClient.Builder()
+                    .addInterceptor(new AuthInterceptor(sessionManager, context))
                     .connectTimeout(5, TimeUnit.SECONDS)
                     .readTimeout(30, TimeUnit.SECONDS)
                     .writeTimeout(30, TimeUnit.SECONDS)

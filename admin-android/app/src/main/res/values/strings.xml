@@ -17,6 +17,11 @@
     <string name="login_password_label">Mật khẩu</string>
     <string name="login_password_hint">Nhập mật khẩu</string>
     <string name="login_button">Đăng nhập</string>
+    <string name="login_phone_invalid">Số điện thoại phải gồm 10–11 chữ số</string>
+    <string name="login_invalid_response">Phản hồi đăng nhập không hợp lệ</string>
+    <string name="login_admin_only">Tài khoản không được truy cập ứng dụng Admin</string>
+    <string name="login_http_error">Đăng nhập thất bại, mã HTTP %1$d</string>
+
 
     <string name="login_account_required">Vui lòng nhập tài khoản</string>
     <string name="login_password_required">Vui lòng nhập mật khẩu</string>
@@ -24,4 +29,30 @@
     <string name="login_error_generic">Không thể đăng nhập. Vui lòng thử lại.</string>
     <string name="login_api_not_ready">Dữ liệu hợp lệ. Chưa kết nối API đăng nhập.</string>
     <string name="open_connection_check">Kiểm tra kết nối</string>
+
+<!--    Home -->
+    <string name="home_title">Chức năng quản lý</string>
+    <string name="home_role">Vai trò: %1$s</string>
+    <string name="home_owner">Chủ cửa hàng</string>
+    <string name="home_sales_staff">Nhân viên bán hàng</string>
+    <string name="home_delivery_staff">Nhân viên giao hàng</string>
+
+    <string name="home_categories">Danh mục</string>
+    <string name="home_products">Sản phẩm</string>
+    <string name="home_suppliers">Nhà cung cấp</string>
+    <string name="home_batches">Nhập lô hàng</string>
+    <string name="home_stocktaking">Kiểm kê</string>
+    <string name="home_alerts">Cảnh báo kho</string>
+    <string name="home_sales">Bán tại quầy</string>
+    <string name="home_orders">Đơn giao hàng</string>
+    <string name="home_reports">Báo cáo</string>
+    <string name="home_promotions">Khuyến mãi</string>
+
+    <string name="feature_pending">Chức năng đang được phát triển</string>
+    <string name="logout_button">Đăng xuất</string>
+    <string name="session_checking">Đang kiểm tra phiên đăng nhập…</string>
+    <string name="session_valid">Phiên đăng nhập hợp lệ</string>
+    <string name="session_http_error">Không kiểm tra được phiên, mã HTTP %1$d</string>
+    <string name="session_network_error">Không kết nối được máy chủ. Nhấn để thử lại.</string>
+    <string name="session_retry">Kiểm tra lại phiên</string>
 </resources>
