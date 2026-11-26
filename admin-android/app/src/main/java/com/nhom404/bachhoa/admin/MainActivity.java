@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         btnRetrySession.setVisibility(View.GONE);
         tvSessionStatus.setText(R.string.session_checking);
 
-        // Ghi nhớ token để bỏ qua phản hồi thuộc phiên cũ.
+        // Ghi nhớ token để bỏ qua phản hồi thuộc phiên cũ
         String requestToken = sessionManager.getAccessToken();
 
         sessionCall = ApiClient.getApiService(this).getCurrentUser();
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 progressSession.setVisibility(View.GONE);
 
                 if (response.code() == 401) {
-                    // AuthInterceptor đảm nhiệm xóa phiên và điều hướng.
+                    // AuthInterceptor đảm nhiệm xóa phiên và điều hướng
                     return;
                 }
 
@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
 
                 JsonObject body = response.body();
 
-                // /auth/toi trả vai_tro và trang_thai dạng snake_case.
+                // /auth/toi trả vai_tro và trang_thai dạng snake_case
                 String role = readString(body, "vai_tro");
                 String status = readString(body, "trang_thai");
 
@@ -156,7 +156,6 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                // Cập nhật vai trò mới nhất lấy từ server.
                 sessionManager.saveSession(requestToken, role);
 
                 setupRoleMenu(role);
@@ -222,21 +221,21 @@ public class MainActivity extends AppCompatActivity {
             addPendingFeature(R.string.home_batches);
             addPendingFeature(R.string.home_stocktaking);
             addPendingFeature(R.string.home_alerts);
-            addPendingFeature(R.string.home_sales);
-            addPendingFeature(R.string.home_orders);
+            addSaleFeature();
+            addOrdersFeature();
             addPendingFeature(R.string.home_reports);
             addPendingFeature(R.string.home_promotions);
 
         } else if ("NHAN_VIEN_BAN_HANG".equals(role)) {
             roleLabel = R.string.home_sales_staff;
 
-            addPendingFeature(R.string.home_sales);
-            addPendingFeature(R.string.home_orders);
+            addSaleFeature();
+            addOrdersFeature();
 
         } else {
             roleLabel = R.string.home_delivery_staff;
 
-            addPendingFeature(R.string.home_orders);
+            addOrdersFeature();
         }
 
         TextView tvRole = findViewById(R.id.tvRole);
@@ -244,6 +243,30 @@ public class MainActivity extends AppCompatActivity {
                 R.string.home_role,
                 getString(roleLabel)
         ));
+    }
+
+    private void addSaleFeature() {
+        Button button = new Button(this);
+        button.setText(R.string.home_sales);
+
+        button.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, PosActivity.class);
+            startActivity(intent);
+        });
+
+        menuContainer.addView(button);
+    }
+
+    private void addOrdersFeature() {
+        Button button = new Button(this);
+        button.setText(R.string.home_orders);
+
+        button.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, OrdersActivity.class);
+            startActivity(intent);
+        });
+
+        menuContainer.addView(button);
     }
 
     private void addPendingFeature(@StringRes int titleRes) {

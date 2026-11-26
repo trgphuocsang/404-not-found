@@ -2,6 +2,7 @@ package com.nhom404.bachhoa.admin;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -73,6 +74,24 @@ public class PosActivity extends AppCompatActivity {
         int searchId = getResources().getIdentifier("edtSearch", "id", getPackageName());
         if (searchId != 0) {
             edtSearch = findViewById(searchId);
+        }
+
+        if (edtSearch != null) {
+            edtSearch.setOnEditorActionListener((v, actionId, event) -> {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH
+                        || actionId == EditorInfo.IME_ACTION_DONE
+                        || actionId == EditorInfo.IME_ACTION_GO
+                        || actionId == EditorInfo.IME_NULL) {
+                    String code = edtSearch.getText().toString().trim();
+                    if (code.isEmpty()) {
+                        Toast.makeText(this, "Vui lòng nhập mã vạch sản phẩm", Toast.LENGTH_SHORT).show();
+                    } else {
+                        handleScannedBarcode(code);
+                    }
+                    return true;
+                }
+                return false;
+            });
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(cardSummary, (v, insets) -> {
